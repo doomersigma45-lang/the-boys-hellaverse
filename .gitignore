@@ -1,0 +1,22 @@
+# Gradle / Forge
+.gradle/
+build/
+run/
+out/
+bin/
+*.log
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+eclipse/
+
+# Python
+__pycache__/
+*.pyc

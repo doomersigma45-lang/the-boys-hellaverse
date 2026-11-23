@@ -1,0 +1,12 @@
+{
+  "type": "hellaverse:ganancia",
+  "generator": {
+    "type": "hellaverse:ring",
+    "settings": "minecraft:overworld",
+    "soil": "hellaverse:ganancia_soil",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "hellaverse:ganancia"
+    }
+  }
+}

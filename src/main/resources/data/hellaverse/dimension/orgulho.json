@@ -1,0 +1,12 @@
+{
+  "type": "hellaverse:orgulho",
+  "generator": {
+    "type": "hellaverse:ring",
+    "settings": "minecraft:overworld",
+    "soil": "hellaverse:orgulho_soil",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "hellaverse:orgulho"
+    }
+  }
+}

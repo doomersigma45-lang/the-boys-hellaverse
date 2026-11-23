@@ -1,0 +1,12 @@
+{
+  "type": "hellaverse:luxuria",
+  "generator": {
+    "type": "hellaverse:ring",
+    "settings": "minecraft:overworld",
+    "soil": "hellaverse:luxuria_soil",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "hellaverse:luxuria"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+package com.hellaverse.registry;
+
+import com.hellaverse.HellaverseMod;
+import com.hellaverse.Ring;
+import com.hellaverse.item.RingKeyItem;
+import java.util.EnumMap;
+import java.util.Map;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public final class ModItems {
+    public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, HellaverseMod.MODID);
+
+    public static final Map<Ring, RegistryObject<Item>> SOIL_ITEMS = new EnumMap<>(Ring.class);
+    public static final Map<Ring, RegistryObject<Item>> KEYS = new EnumMap<>(Ring.class);
+
+    static {
+        for (Ring ring : Ring.values()) {
+            SOIL_ITEMS.put(ring, ITEMS.register(ring.soilName(),
+                    () -> new BlockItem(ModBlocks.SOILS.get(ring).get(), new Item.Properties())));
+            KEYS.put(ring, ITEMS.register(ring.keyName(),
+                    () -> new RingKeyItem(ring, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC))));
+        }
+    }
+
+    private ModItems() {}
+}

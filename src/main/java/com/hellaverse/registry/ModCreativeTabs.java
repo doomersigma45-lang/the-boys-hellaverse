@@ -24,6 +24,7 @@ public final class ModCreativeTabs {
                         for (Ring ring : Ring.values()) {
                             output.accept(ModItems.SOIL_ITEMS.get(ring).get());
                         }
+                        output.accept(ModItems.BLACK_NOIR_SPAWN_EGG.get());
                     })
                     .build());
 

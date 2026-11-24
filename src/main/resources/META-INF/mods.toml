@@ -22,3 +22,33 @@ description='''${mod_description}'''
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+# Dependencias obrigatorias: o jogo nao abre sem estes dois mods.
+[[dependencies.${mod_id}]]
+    modId="compound_v"
+    mandatory=true
+    versionRange="${compound_v_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="compound_v_tweaks"
+    mandatory=true
+    versionRange="${compound_v_tweaks_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
+# Mods obrigatorios: sem eles o Forge nem carrega o Hellaverse.
+[[dependencies.${mod_id}]]
+    modId="compound_v"
+    mandatory=true
+    versionRange="[2.3.6,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="compound_v_tweaks"
+    mandatory=true
+    versionRange="[5.2.0,)"
+    ordering="AFTER"
+    side="BOTH"

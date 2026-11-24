@@ -8,6 +8,7 @@ import java.util.Map;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -27,6 +28,9 @@ public final class ModItems {
                     () -> new RingKeyItem(ring, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC))));
         }
     }
+
+    public static final RegistryObject<Item> BLACK_NOIR_SPAWN_EGG = ITEMS.register("black_noir_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.BLACK_NOIR, 0x0B0B0F, 0x8E0F1C, new Item.Properties()));
 
     private ModItems() {}
 }

@@ -3,6 +3,7 @@ package com.hellaverse;
 import com.hellaverse.registry.ModBlocks;
 import com.hellaverse.registry.ModChunkGenerators;
 import com.hellaverse.registry.ModCreativeTabs;
+import com.hellaverse.registry.ModEntities;
 import com.hellaverse.registry.ModFeatures;
 import com.hellaverse.registry.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,6 +18,7 @@ public class HellaverseMod {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
+        ModEntities.ENTITY_TYPES.register(bus);
         ModFeatures.FEATURES.register(bus);
         ModChunkGenerators.CHUNK_GENERATORS.register(bus);
         ModCreativeTabs.TABS.register(bus);

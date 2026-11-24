@@ -1,6 +1,10 @@
 {
   "itemGroup.hellaverse": "The Boys Hellaverse",
   "message.hellaverse.no_dimension": "This dimension is not available.",
+  "entity.hellaverse.homelander": "Homelander",
+  "item.hellaverse.homelander_spawn_egg": "Homelander Spawn Egg",
+  "entity.hellaverse.kimiko": "Kimiko",
+  "item.hellaverse.kimiko_spawn_egg": "Kimiko Spawn Egg",
   "entity.hellaverse.black_noir": "Black Noir",
   "item.hellaverse.black_noir_spawn_egg": "Black Noir Spawn Egg",
   "block.hellaverse.orgulho_soil": "Pride Black Soil",

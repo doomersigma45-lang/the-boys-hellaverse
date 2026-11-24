@@ -15,6 +15,10 @@ public final class ClientModEvents {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.BLACK_NOIR.get(), BlackNoirRenderer::new);
+        event.registerEntityRenderer(ModEntities.HOMELANDER.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "homelander"));
+        event.registerEntityRenderer(ModEntities.KIMIKO.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "kimiko"));
     }
 
     @SubscribeEvent

@@ -25,6 +25,8 @@ public final class ModCreativeTabs {
                             output.accept(ModItems.SOIL_ITEMS.get(ring).get());
                         }
                         output.accept(ModItems.BLACK_NOIR_SPAWN_EGG.get());
+                        output.accept(ModItems.HOMELANDER_SPAWN_EGG.get());
+                        output.accept(ModItems.KIMIKO_SPAWN_EGG.get());
                     })
                     .build());
 

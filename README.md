@@ -40,6 +40,32 @@ Mob neutro com a skin enviada, disponível no ovo de spawn da aba criativa.
 | Portas/janelas | quebra portas, vidros e painéis no caminho do alvo (respeita `mobGriefing`) |
 | Comportamento | só ataca quem o atacou primeiro e mobs hostis |
 
+## Homelander
+
+Neutro e hostil: só ataca **mobs hostis** (não revida jogadores). Ovo de spawn na aba criativa. Aparência provisória de cor sólida (azul).
+
+| Atributo | Valor |
+|---|---|
+| Vida / dano | 1000 / 150 |
+| Efeitos | Resistência II, `compound_v:laser_eyes_advanced`, `compound_v:creative_flight` (permanentes) |
+| Projéteis | imune |
+| Voo | sempre voando (hover) |
+| Laser | feixe vermelho dos olhos (20 de dano a cada 5 ticks por 1,5 s, alcance 4 a 48 blocos), com linha de visão |
+| Detecção | enxerga mobs hostis a até 64 blocos, mesmo atrás de paredes |
+| Blocos/portas | abre portas e quebra blocos no caminho, **somente** enquanto persegue um mob (respeita `mobGriefing`) |
+
+## Kimiko
+
+Neutra e passiva: só revida quem a atacar. Aparência provisória de cor sólida (rosa).
+
+| Atributo | Valor |
+|---|---|
+| Vida / dano | 55 / 20 |
+| Efeitos | Regeneração III (permanente) |
+| Portas | abre portas e quebra as que não consegue abrir |
+
+Para trocar a aparência dos dois, substitua `textures/entity/homelander.png` e `kimiko.png` (64x64, braços clássicos) e **remova** as entradas `SOLID_SKINS` em `tools/generate_assets.py`, senão o script as sobrescreve.
+
 ## Como viajar (provisório)
 
 Na aba criativa **The Boys Hellaverse** há uma **Chave** por anel. Botão direito com a chave leva para o anel (mesmas coordenadas X/Z). Usar a chave dentro do anel volta ao Overworld. Portais de verdade ficam para uma próxima etapa.
@@ -69,6 +95,6 @@ Cada push também compila no GitHub Actions; o jar fica em *Actions → Build �
 
 - `registry/`: blocos, itens, aba criativa, features e gerador de chunks.
 - `worldgen/`: `RingChunkGenerator`, `VolcanoFeature`, `FarmFeature`.
-- `entity/`, `event/`: Black Noir, seus goals de IA e a furtividade.
-- `client/`: céu do Orgulho (pentagrama) e renderer do Black Noir.
+- `entity/`, `event/`: Black Noir, Homelander, Kimiko, os goals de IA (laser, quebra de blocos) e a furtividade.
+- `client/`: céu do Orgulho (pentagrama) e renderers dos personagens.
 - `tools/`: gerador de dados e texturas.

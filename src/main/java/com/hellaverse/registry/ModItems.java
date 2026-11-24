@@ -32,5 +32,10 @@ public final class ModItems {
     public static final RegistryObject<Item> BLACK_NOIR_SPAWN_EGG = ITEMS.register("black_noir_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.BLACK_NOIR, 0x0B0B0F, 0x8E0F1C, new Item.Properties()));
 
+    public static final RegistryObject<Item> HOMELANDER_SPAWN_EGG = ITEMS.register("homelander_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.HOMELANDER, 0x1C3F94, 0xC8102E, new Item.Properties()));
+    public static final RegistryObject<Item> KIMIKO_SPAWN_EGG = ITEMS.register("kimiko_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.KIMIKO, 0xE6A5C0, 0x6B1F3A, new Item.Properties()));
+
     private ModItems() {}
 }

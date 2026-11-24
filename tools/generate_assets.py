@@ -138,6 +138,11 @@ def gen_lang():
           "message.hellaverse.no_dimension": "This dimension is not available."}
     pt = {"itemGroup.hellaverse": "The Boys Hellaverse",
           "message.hellaverse.no_dimension": "Esta dimensão não está disponível."}
+    for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko")):
+        en[f"entity.{MOD}.{ent}"] = label
+        pt[f"entity.{MOD}.{ent}"] = label
+        en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
+        pt[f"item.{MOD}.{ent}_spawn_egg"] = f"Ovo de Geração: {label}"
     en[f"entity.{MOD}.black_noir"] = "Black Noir"
     pt[f"entity.{MOD}.black_noir"] = "Black Noir"
     en[f"item.{MOD}.black_noir_spawn_egg"] = "Black Noir Spawn Egg"
@@ -228,6 +233,26 @@ def gen_tags():
         write_json(f"{VANILLA_DATA}/tags/blocks/{tag}.json", {"replace": False, "values": soils})
 
 
+# Skins provisorias de cor solida (so as partes do corpo; as camadas extras ficam transparentes).
+SOLID_SKINS = {"homelander": 0x1C3F94, "kimiko": 0xE6A5C0}
+OVERLAY_BOXES = [(32, 0, 64, 16), (16, 32, 40, 48), (40, 32, 56, 48),
+                 (48, 48, 64, 64), (0, 32, 16, 48), (0, 48, 16, 64)]
+
+
+def solid_skin(color):
+    img = Image.new("RGBA", (64, 64), (*rgb(color), 255))
+    for box in OVERLAY_BOXES:
+        img.paste((0, 0, 0, 0), box)
+    return img
+
+
+def gen_solid_characters():
+    for name, color in SOLID_SKINS.items():
+        save_png(solid_skin(color), f"{ASSETS}/textures/entity/{name}.png")
+        write_json(f"{ASSETS}/models/item/{name}_spawn_egg.json",
+                   {"parent": "minecraft:item/template_spawn_egg"})
+
+
 def gen_black_noir():
     # A skin (textures/entity/black_noir.png) e mantida a mao: nao e gerada aqui.
     write_json(f"{ASSETS}/models/item/black_noir_spawn_egg.json",
@@ -236,6 +261,7 @@ def gen_black_noir():
 
 def main():
     gen_black_noir()
+    gen_solid_characters()
     for ring in RINGS:
         gen_block_and_item_assets(ring)
         gen_dimension_type(ring)

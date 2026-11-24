@@ -3,7 +3,6 @@ name: Build
 on:
   push:
     branches: [main]
-    tags: ['v*']
   pull_request:
   workflow_dispatch:
 
@@ -26,10 +25,18 @@ jobs:
         with:
           name: hellaverse-jar
           path: build/libs/*.jar
-      # Ao criar uma tag (ex.: v0.1.0), publica o jar na aba Releases.
+      - name: Read mod version
+        id: ver
+        run: echo "version=$(grep '^mod_version=' gradle.properties | cut -d= -f2)" >> "$GITHUB_OUTPUT"
+      # Publica/atualiza a release "v<mod_version>" com o jar. Para uma nova release, aumente mod_version.
       - name: Publish release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: github.event_name != 'pull_request'
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: v${{ steps.ver.outputs.version }}
+          target_commitish: ${{ github.sha }}
+          name: The Boys Hellaverse v${{ steps.ver.outputs.version }}
+          body: |
+            Minecraft 1.20.1 / Forge 47.3.0.
+            Baixe o arquivo `hellaverse-${{ steps.ver.outputs.version }}.jar` abaixo e coloque na pasta `mods`.
           files: build/libs/*.jar
-          generate_release_notes: true

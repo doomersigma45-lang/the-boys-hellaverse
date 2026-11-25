@@ -2,9 +2,12 @@ package com.hellaverse.registry;
 
 import com.hellaverse.HellaverseMod;
 import com.hellaverse.Ring;
+import com.hellaverse.item.GunItem;
 import com.hellaverse.item.RingKeyItem;
+import com.hellaverse.item.RpgItem;
 import java.util.EnumMap;
 import java.util.Map;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -39,6 +42,31 @@ public final class ModItems {
 
     public static final RegistryObject<Item> WEB_WEAVER_SPAWN_EGG = ITEMS.register("web_weaver_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.WEB_WEAVER, 0x3A3A44, 0xE8E8E8, new Item.Properties()));
+
+    // ----------------------------------------------------------------- municao
+    public static final RegistryObject<Item> PISTOL_AMMO = ITEMS.register("pistol_ammo", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SMG_AMMO = ITEMS.register("smg_ammo", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RIFLE_AMMO = ITEMS.register("rifle_ammo", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SNIPER_AMMO = ITEMS.register("sniper_ammo", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ROCKET = ITEMS.register("rpg_rocket", () -> new Item(new Item.Properties()));
+
+    // ----------------------------------------------------------------- armas
+    // Stats(dano, intervalo em ticks, dispersao em graus, alcance, automatica, som, tom)
+    public static final RegistryObject<Item> REVOLVER = ITEMS.register("revolver", () -> new GunItem(
+            new Item.Properties().stacksTo(1), PISTOL_AMMO,
+            new GunItem.Stats(12.0F, 14, 0.4F, 64.0D, false, SoundEvents.FIREWORK_ROCKET_BLAST, 0.7F)));
+    public static final RegistryObject<Item> UZI = ITEMS.register("uzi", () -> new GunItem(
+            new Item.Properties().stacksTo(1), SMG_AMMO,
+            new GunItem.Stats(3.5F, 2, 3.0F, 40.0D, true, SoundEvents.FIREWORK_ROCKET_BLAST, 1.7F)));
+    public static final RegistryObject<Item> AK47 = ITEMS.register("ak47", () -> new GunItem(
+            new Item.Properties().stacksTo(1), RIFLE_AMMO,
+            new GunItem.Stats(6.0F, 3, 1.5F, 64.0D, true, SoundEvents.FIREWORK_ROCKET_BLAST, 1.1F)));
+    public static final RegistryObject<Item> SNIPER = ITEMS.register("sniper", () -> new GunItem(
+            new Item.Properties().stacksTo(1), SNIPER_AMMO,
+            new GunItem.Stats(40.0F, 40, 0.0F, 160.0D, false, SoundEvents.GENERIC_EXPLODE, 2.0F)));
+    public static final RegistryObject<Item> RPG = ITEMS.register("rpg", () -> new RpgItem(
+            new Item.Properties().stacksTo(1), ROCKET,
+            new GunItem.Stats(0.0F, 60, 0.0F, 0.0D, false, SoundEvents.FIREWORK_ROCKET_LAUNCH, 0.6F)));
 
     private ModItems() {}
 }

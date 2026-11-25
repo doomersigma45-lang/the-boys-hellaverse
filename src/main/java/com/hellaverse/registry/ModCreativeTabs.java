@@ -28,6 +28,13 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.HOMELANDER_SPAWN_EGG.get());
                         output.accept(ModItems.KIMIKO_SPAWN_EGG.get());
                         output.accept(ModItems.WEB_WEAVER_SPAWN_EGG.get());
+                        for (var weapon : new net.minecraft.world.item.Item[] {
+                                ModItems.REVOLVER.get(), ModItems.UZI.get(), ModItems.AK47.get(),
+                                ModItems.SNIPER.get(), ModItems.RPG.get(),
+                                ModItems.PISTOL_AMMO.get(), ModItems.SMG_AMMO.get(), ModItems.RIFLE_AMMO.get(),
+                                ModItems.SNIPER_AMMO.get(), ModItems.ROCKET.get()}) {
+                            output.accept(weapon);
+                        }
                     })
                     .build());
 

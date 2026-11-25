@@ -4,6 +4,7 @@ import com.hellaverse.HellaverseMod;
 import com.hellaverse.entity.BlackNoirEntity;
 import com.hellaverse.entity.HomelanderEntity;
 import com.hellaverse.entity.KimikoEntity;
+import com.hellaverse.entity.RocketEntity;
 import com.hellaverse.entity.WebWeaverEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -42,6 +43,13 @@ public final class ModEntities {
                     .sized(0.6F, 1.8F)
                     .clientTrackingRange(10)
                     .build(HellaverseMod.MODID + ":web_weaver"));
+
+    public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
+            () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
+                    .sized(0.4F, 0.4F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build(HellaverseMod.MODID + ":rocket"));
 
     private ModEntities() {}
 

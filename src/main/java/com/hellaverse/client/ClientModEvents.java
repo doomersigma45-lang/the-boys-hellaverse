@@ -2,6 +2,7 @@ package com.hellaverse.client;
 
 import com.hellaverse.HellaverseMod;
 import com.hellaverse.registry.ModEntities;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
@@ -19,6 +20,7 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "homelander"));
         event.registerEntityRenderer(ModEntities.KIMIKO.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "kimiko"));
+        event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));
     }

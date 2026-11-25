@@ -43,13 +43,14 @@ Mob neutro com a skin enviada, disponível no ovo de spawn da aba criativa.
 
 ## Homelander
 
-Neutro e hostil: só ataca **mobs hostis** (não revida jogadores). Ovo de spawn na aba criativa. Skin própria (128x128).
+Neutro e hostil: ataca **mobs hostis** e revida quem o atacar, inclusive jogadores. Ovo de spawn na aba criativa. Skin própria (128x128).
 
 | Atributo | Valor |
 |---|---|
 | Vida / dano | 1000 / 150 |
 | Efeitos | Resistência II, `compound_v:laser_eyes_advanced`, `compound_v:creative_flight` (permanentes) |
-| Projéteis | imune |
+| Projéteis | imune (balas das armas contam como projéteis) |
+| Dano recebido | −40% em tudo (além da Resistência II), exceto `/kill` e vazio |
 | Voo | sempre voando (hover) |
 | Laser | feixe vermelho dos olhos (20 de dano a cada 5 ticks por 1,5 s, alcance 4 a 48 blocos), com linha de visão |
 | Detecção | enxerga mobs hostis a até 64 blocos, mesmo atrás de paredes |
@@ -77,6 +78,22 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 | Movimento | escala paredes |
 | Portas | abre portas |
 | Teias | atira uma teia no alvo (3 a 14 blocos): Lentidão III por 3 s e uma teia no local, que some em 10 s |
+
+## Armas e munições
+
+Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.
+
+| Arma | Munição | Dano | Cadência | Alcance | Tipo |
+|---|---|---|---|---|---|
+| Revólver | Munição de Pistola | 12 | 0,7 s | 64 | um tiro por clique |
+| Uzi | Munição de Submetralhadora | 3,5 | 0,1 s (dispersão 3°) | 40 | automática |
+| AK-47 | Munição de Fuzil | 6 | 0,15 s (dispersão 1,5°) | 64 | automática |
+| Sniper | Munição de Sniper | 40 | 2 s | 160 | um tiro por clique |
+| RPG | Foguete de RPG | explosão (força 3,5) | 3 s | foguete | um tiro por clique |
+
+As balas são de acerto instantâneo e contam como projéteis: Black Noir e Homelander são imunes a elas. O foguete do RPG explode, então Black Noir só leva 10% do dano. Os números ficam em `ModItems.java` (`GunItem.Stats`).
+
+Receitas de munição: Pistola = lingote de cobre + pólvora (8); Submetralhadora = 3 pepitas de ferro + pólvora (12); Fuzil = lingote de ferro + pólvora (10); Sniper = lingote de ferro + 2 pólvoras (5); Foguete = TNT + lingote de ferro + pólvora (2). As armas usam lingotes de ferro, redstone, gravetos, bloco de ferro (AK-47, Sniper, RPG) e TNT (RPG).
 
 ## Como viajar (provisório)
 

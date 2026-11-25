@@ -133,6 +133,95 @@ def gen_block_and_item_assets(ring):
     })
 
 
+# ----------------------------------------------------------------------------- armas e municao
+STEEL, DARK, BLACK = (150, 155, 165), (70, 72, 82), (35, 35, 40)
+WOOD, OLIVE, RED = (125, 80, 42), (92, 104, 62), (190, 60, 42)
+BRASS, COPPER = (214, 170, 70), (184, 100, 60)
+
+# (x0, y0, x1, y1, cor) inclusivo; desenhados em ordem.
+GUN_SHAPES = {
+    "revolver": [(7, 4, 14, 5, STEEL), (4, 4, 8, 8, DARK), (5, 5, 7, 7, STEEL), (2, 8, 4, 12, WOOD),
+                 (4, 7, 6, 8, DARK), (5, 8, 6, 9, DARK)],
+    "uzi": [(3, 4, 12, 8, DARK), (12, 5, 15, 6, STEEL), (4, 3, 10, 3, STEEL), (6, 9, 8, 14, BLACK),
+            (3, 9, 5, 12, BLACK)],
+    "ak47": [(9, 5, 15, 5, STEEL), (4, 5, 10, 7, DARK), (0, 5, 4, 8, WOOD), (9, 6, 13, 7, WOOD),
+             (7, 8, 9, 11, BLACK), (8, 11, 10, 13, BLACK), (4, 8, 6, 11, WOOD)],
+    "sniper": [(6, 6, 15, 6, STEEL), (3, 5, 8, 8, DARK), (0, 6, 3, 9, WOOD), (5, 3, 10, 4, BLACK),
+               (6, 4, 7, 5, BLACK), (11, 7, 12, 9, DARK), (4, 9, 5, 11, WOOD)],
+    "rpg": [(2, 6, 12, 8, OLIVE), (12, 5, 14, 9, RED), (14, 6, 15, 8, RED), (5, 9, 6, 11, DARK),
+            (0, 5, 2, 9, DARK)],
+}
+AMMO_SHAPES = {
+    "pistol_ammo": [(3, 6, 4, 11, BRASS), (3, 5, 4, 5, COPPER), (7, 6, 8, 11, BRASS), (7, 5, 8, 5, COPPER),
+                    (11, 6, 12, 11, BRASS), (11, 5, 12, 5, COPPER)],
+    "smg_ammo": [(2, 8, 3, 12, BRASS), (2, 7, 3, 7, COPPER), (5, 8, 6, 12, BRASS), (5, 7, 6, 7, COPPER),
+                 (8, 8, 9, 12, BRASS), (8, 7, 9, 7, COPPER), (11, 8, 12, 12, BRASS), (11, 7, 12, 7, COPPER)],
+    "rifle_ammo": [(4, 4, 6, 12, BRASS), (4, 2, 6, 3, COPPER), (9, 4, 11, 12, BRASS), (9, 2, 11, 3, COPPER)],
+    "sniper_ammo": [(6, 5, 9, 13, BRASS), (6, 2, 9, 4, COPPER), (7, 1, 8, 1, COPPER)],
+    "rpg_rocket": [(6, 5, 9, 12, OLIVE), (7, 2, 8, 4, RED), (5, 11, 10, 13, DARK), (6, 13, 9, 14, BRASS)],
+}
+
+
+def pixel_art(shapes):
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    for x0, y0, x1, y1, color in shapes:
+        for x in range(x0, x1 + 1):
+            for y in range(y0, y1 + 1):
+                img.putpixel((x, y), (*color, 255))
+    out = img.copy()
+    for x in range(16):
+        for y in range(16):
+            if img.getpixel((x, y))[3] == 0:
+                near = any(0 <= x + dx < 16 and 0 <= y + dy < 16 and img.getpixel((x + dx, y + dy))[3] > 0
+                           for dx in (-1, 0, 1) for dy in (-1, 0, 1))
+                if near:
+                    out.putpixel((x, y), (20, 20, 24, 255))
+    return out
+
+
+WEAPON_NAMES = {  # id: (en, pt)
+    "revolver": ("Revolver", "Revólver"), "uzi": ("Uzi", "Uzi"), "ak47": ("AK-47", "AK-47"),
+    "sniper": ("Sniper Rifle", "Rifle Sniper"), "rpg": ("RPG", "RPG"),
+    "pistol_ammo": ("Pistol Ammo", "Munição de Pistola"), "smg_ammo": ("SMG Ammo", "Munição de Submetralhadora"),
+    "rifle_ammo": ("Rifle Ammo", "Munição de Fuzil"), "sniper_ammo": ("Sniper Ammo", "Munição de Sniper"),
+    "rpg_rocket": ("RPG Rocket", "Foguete de RPG"),
+}
+
+
+def _ing(item):
+    return {"item": item}
+
+
+def gen_weapons():
+    for name, shapes in {**GUN_SHAPES, **AMMO_SHAPES}.items():
+        save_png(pixel_art(shapes), f"{ASSETS}/textures/item/{name}.png")
+        write_json(f"{ASSETS}/models/item/{name}.json",
+                   {"parent": "minecraft:item/generated", "textures": {"layer0": f"{MOD}:item/{name}"}})
+
+    def shaped(name, pattern, key, count=1):
+        write_json(f"{DATA}/recipes/{name}.json", {
+            "type": "minecraft:crafting_shaped", "category": "equipment", "pattern": pattern,
+            "key": {k: _ing(v) for k, v in key.items()}, "result": {"item": f"{MOD}:{name}", "count": count}})
+
+    def shapeless(name, items, count):
+        write_json(f"{DATA}/recipes/{name}.json", {
+            "type": "minecraft:crafting_shapeless", "category": "equipment",
+            "ingredients": [_ing(i) for i in items], "result": {"item": f"{MOD}:{name}", "count": count}})
+
+    iron, stick, red = "minecraft:iron_ingot", "minecraft:stick", "minecraft:redstone"
+    block, tnt, powder = "minecraft:iron_block", "minecraft:tnt", "minecraft:gunpowder"
+    shaped("revolver", ["II ", " RS", " S "], {"I": iron, "R": red, "S": stick})
+    shaped("uzi", ["III", "IRS", " S "], {"I": iron, "R": red, "S": stick})
+    shaped("ak47", ["IIB", "SRI", "S  "], {"I": iron, "B": block, "R": red, "S": stick})
+    shaped("sniper", ["  I", "IBI", "SR "], {"I": iron, "B": block, "R": red, "S": stick})
+    shaped("rpg", ["IBI", " TS", "  S"], {"I": iron, "B": block, "T": tnt, "S": stick})
+    shapeless("pistol_ammo", ["minecraft:copper_ingot", powder], 8)
+    shapeless("smg_ammo", ["minecraft:iron_nugget"] * 3 + [powder], 12)
+    shapeless("rifle_ammo", [iron, powder], 10)
+    shapeless("sniper_ammo", [iron, powder, powder], 5)
+    shapeless("rpg_rocket", [tnt, iron, powder], 2)
+
+
 def gen_lang():
     en = {"itemGroup.hellaverse": "The Boys Hellaverse",
           "message.hellaverse.no_dimension": "This dimension is not available."}
@@ -143,6 +232,11 @@ def gen_lang():
         pt[f"entity.{MOD}.{ent}"] = label
         en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
         pt[f"item.{MOD}.{ent}_spawn_egg"] = f"Ovo de Geração: {label}"
+    for wid, (w_en, w_pt) in WEAPON_NAMES.items():
+        en[f"item.{MOD}.{wid}"] = w_en
+        pt[f"item.{MOD}.{wid}"] = w_pt
+    en[f"tooltip.{MOD}.gun_ammo"] = "Ammo: %s"
+    pt[f"tooltip.{MOD}.gun_ammo"] = "Munição: %s"
     en[f"entity.{MOD}.black_noir"] = "Black Noir"
     pt[f"entity.{MOD}.black_noir"] = "Black Noir"
     en[f"item.{MOD}.black_noir_spawn_egg"] = "Black Noir Spawn Egg"
@@ -245,6 +339,7 @@ def gen_characters():
 
 def main():
     gen_characters()
+    gen_weapons()
     for ring in RINGS:
         gen_block_and_item_assets(ring)
         gen_dimension_type(ring)

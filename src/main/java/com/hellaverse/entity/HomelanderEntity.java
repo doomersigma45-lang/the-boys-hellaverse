@@ -18,6 +18,7 @@ import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
@@ -29,12 +30,14 @@ import net.minecraft.world.phys.Vec3;
 
 /**
  * Homelander (The Boys). Voa, dispara laser pelos olhos, e imune a projeteis e tem Resistencia II.
- * Neutro: so ataca mobs hostis (nao revida jogadores). Enxerga mobs hostis de muito longe, mesmo atras de paredes,
+ * Neutro: ataca mobs hostis e revida quem o atacar (inclusive jogadores). Enxerga mobs hostis de muito longe, mesmo atras de paredes,
  * e abre portas / quebra blocos no caminho enquanto persegue um alvo.
  */
 public class HomelanderEntity extends PathfinderMob {
     public static final double MAX_HEALTH = 1000.0D;
     public static final double ATTACK_DAMAGE = 150.0D;
+    /** Todo dano recebido e multiplicado por isto (-40%), alem da Resistencia II. */
+    private static final float DAMAGE_TAKEN_FACTOR = 0.6F;
     /** Dano por pulso do laser (um pulso a cada 5 ticks durante o disparo). */
     private static final float LASER_DAMAGE = 20.0F;
 
@@ -62,6 +65,8 @@ public class HomelanderEntity extends PathfinderMob {
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
+        // Revida quem o atacar (inclusive jogadores).
+        targetSelector.addGoal(0, new HurtByTargetGoal(this));
         // Identifica mobs hostis ate 64 blocos de distancia, sem precisar ve-los (mustSee = false).
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Mob.class, 20, false, false,
                 target -> target instanceof Enemy));
@@ -118,6 +123,9 @@ public class HomelanderEntity extends PathfinderMob {
     public boolean hurt(DamageSource source, float amount) {
         if (source.is(DamageTypeTags.IS_PROJECTILE) || source.getDirectEntity() instanceof Projectile) {
             return false; // imune a projeteis
+        }
+        if (!source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) { // /kill e vazio continuam funcionando
+            amount *= DAMAGE_TAKEN_FACTOR;
         }
         return super.hurt(source, amount);
     }

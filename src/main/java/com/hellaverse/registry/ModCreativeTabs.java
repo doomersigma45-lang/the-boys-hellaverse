@@ -34,6 +34,8 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.LAMPLIGHTER_SPAWN_EGG.get());
                         output.accept(ModItems.CHERRI_BOMB_SPAWN_EGG.get());
                         output.accept(ModItems.LIGHTER.get());
+                        output.accept(ModItems.FRENCHIE_SPAWN_EGG.get());
+                        output.accept(ModItems.MOXXIE_SPAWN_EGG.get());
                         output.accept(ModItems.ALASTOR_SPAWN_EGG.get());
                         output.accept(ModItems.ALASTOR_STAFF.get());
                         for (var weapon : new net.minecraft.world.item.Item[] {

@@ -118,6 +118,17 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 ## Alastor Staff (`hellaverse:alastor_staff`)
 - Botão direito: invoca 3 demônios de sombra que protegem você (máx. 9 ao mesmo tempo, recarga de 20 s, 256 usos).
 
+## Frenchie
+- **HP 25**, dano corpo a corpo igual ao de um jogador (1), abre portas, neutro: revida quem o atacar e ataca mobs hostis.
+- Atira com as armas do mod (sem gastar munição): **RPG** contra alvos com mais vida máxima que ele, **AK-47 ou revólver**
+  (aleatório) contra alvos com vida igual ou menor. A arma aparece na mão dele.
+- Aparência provisória: cor sólida azul (substitua `textures/entity/frenchie.png` por uma skin 64x64).
+
+## Moxxie
+- **HP 15**, dano corpo a corpo 0,5 (metade do jogador), abre portas, imune a fogo, neutro/hostil: revida e ataca mobs hostis.
+- Atira de **revólver** (até 24 blocos) ou **sniper** (mais longe). Menor que um jogador (78% do tamanho, hitbox menor).
+- Aparência provisória: cor sólida vermelha (substitua `textures/entity/moxxie.png`).
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

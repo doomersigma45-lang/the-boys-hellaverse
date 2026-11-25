@@ -35,6 +35,10 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "alastor", true));
         event.registerEntityRenderer(ModEntities.SHADOW_DEMON.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "shadow_demon").withScale(0.65F));
+        event.registerEntityRenderer(ModEntities.FRENCHIE.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "frenchie"));
+        event.registerEntityRenderer(ModEntities.MOXXIE.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "moxxie").withScale(0.78F));
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));

@@ -115,9 +115,19 @@ public class GunItem extends Item {
     }
 
     protected void shoot(ServerLevel level, Player player) {
+        shootFrom(level, player, stats, 0.0F);
+    }
+
+    public Stats stats() {
+        return stats;
+    }
+
+    /** Tiro instantaneo a partir de qualquer ser vivo (jogador ou mob). extraSpread soma graus de dispersao. */
+    public static void shootFrom(ServerLevel level, LivingEntity player, Stats stats, float extraSpread) {
         Vec3 from = player.getEyePosition();
-        float yaw = player.getYRot() + (float) (level.random.nextGaussian() * stats.spread());
-        float pitch = player.getXRot() + (float) (level.random.nextGaussian() * stats.spread());
+        float spread = stats.spread() + extraSpread;
+        float yaw = player.getYRot() + (float) (level.random.nextGaussian() * spread);
+        float pitch = player.getXRot() + (float) (level.random.nextGaussian() * spread);
         Vec3 dir = Vec3.directionFromRotation(pitch, yaw);
         Vec3 to = from.add(dir.scale(stats.range()));
 

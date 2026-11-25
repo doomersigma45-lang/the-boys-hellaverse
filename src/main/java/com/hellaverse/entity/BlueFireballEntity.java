@@ -61,7 +61,7 @@ public class BlueFireballEntity extends AbstractHurtingProjectile {
         Entity target = result.getEntity();
         Entity owner = getOwner();
         target.invulnerableTime = 0; // permite varios projeteis seguidos
-        DamageSource source = damageSources().fireball(this, owner);
+        DamageSource source = damageSources().thrown(this, owner);
         if (target.hurt(source, DAMAGE)) {
             target.setSecondsOnFire(6);
         }

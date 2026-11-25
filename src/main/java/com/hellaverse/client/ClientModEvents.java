@@ -2,6 +2,7 @@ package com.hellaverse.client;
 
 import com.hellaverse.HellaverseMod;
 import com.hellaverse.registry.ModEntities;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -39,6 +40,8 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "frenchie"));
         event.registerEntityRenderer(ModEntities.MOXXIE.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "moxxie").withScale(0.78F));
+        event.registerEntityRenderer(ModEntities.ASMODEUS.get(), AsmodeusRenderer::new);
+        event.registerEntityRenderer(ModEntities.BLUE_FIREBALL.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));

@@ -129,6 +129,16 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 - Atira de **revólver** (até 24 blocos) ou **sniper** (mais longe). Menor que um jogador (78% do tamanho, hitbox menor).
 - Aparência provisória: cor sólida vermelha (substitua `textures/entity/moxxie.png`).
 
+## Asmodeus (boss)
+- **HP 2500**, dano 75, **5 blocos de altura**, barra de vida azul, hostil a jogadores, imune a fogo, abre portas.
+  Aura de partículas de **fogo azul** (`soul_fire_flame`) em volta do corpo. Aparência provisória: azul sólido
+  (substitua `textures/entity/asmodeus.png` por uma skin 64x64; o modelo é ampliado automaticamente).
+- **Projétil de fogo azul**: 15 de dano + queima por 6 s, invisível (só as partículas), a cada ~1,5 s a distância.
+- **Agarrar**: perto do alvo (até 7 blocos), levanta o alvo à sua frente e despeja **de 4 a 7** projéteis de fogo azul
+  nele, depois solta (recarga de 15 s).
+- **Agachar**: se não há 5 blocos de altura livres onde está (ou à frente), ou se não acha caminho até o alvo, agacha
+  (hitbox 0,9 x 1,9) para passar por portas e vãos; levanta quando cabe de novo.
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

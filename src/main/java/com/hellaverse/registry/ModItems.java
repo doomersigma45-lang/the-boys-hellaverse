@@ -66,6 +66,9 @@ public final class ModItems {
     public static final RegistryObject<Item> MOXXIE_SPAWN_EGG = ITEMS.register("moxxie_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.MOXXIE, 0xC0392B, 0xF1C40F, new Item.Properties()));
 
+    public static final RegistryObject<Item> ASMODEUS_SPAWN_EGG = ITEMS.register("asmodeus_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ASMODEUS, 0x1E5BFF, 0x9FD8FF, new Item.Properties()));
+
     /** Isqueiro do Lamplighter: funciona como isqueiro de pederneira. */
     public static final RegistryObject<Item> LIGHTER = ITEMS.register("lighter",
             () -> new FlintAndSteelItem(new Item.Properties().stacksTo(1).durability(256)));

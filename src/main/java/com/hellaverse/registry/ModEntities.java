@@ -1,10 +1,12 @@
 package com.hellaverse.registry;
 
 import com.hellaverse.HellaverseMod;
+import com.hellaverse.entity.AdamEntity;
 import com.hellaverse.entity.BlackNoirEntity;
 import com.hellaverse.entity.HomelanderEntity;
 import com.hellaverse.entity.KimikoEntity;
 import com.hellaverse.entity.RocketEntity;
+import com.hellaverse.entity.SoldierBoyEntity;
 import com.hellaverse.entity.WebWeaverEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -44,6 +46,18 @@ public final class ModEntities {
                     .clientTrackingRange(10)
                     .build(HellaverseMod.MODID + ":web_weaver"));
 
+    public static final RegistryObject<EntityType<AdamEntity>> ADAM = ENTITY_TYPES.register("adam",
+            () -> EntityType.Builder.of(AdamEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":adam"));
+
+    public static final RegistryObject<EntityType<SoldierBoyEntity>> SOLDIER_BOY = ENTITY_TYPES.register("soldier_boy",
+            () -> EntityType.Builder.of(SoldierBoyEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":soldier_boy"));
+
     public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
             () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
                     .sized(0.4F, 0.4F)
@@ -59,5 +73,7 @@ public final class ModEntities {
         event.put(HOMELANDER.get(), HomelanderEntity.createAttributes().build());
         event.put(KIMIKO.get(), KimikoEntity.createAttributes().build());
         event.put(WEB_WEAVER.get(), WebWeaverEntity.createAttributes().build());
+        event.put(ADAM.get(), AdamEntity.createAttributes().build());
+        event.put(SOLDIER_BOY.get(), SoldierBoyEntity.createAttributes().build());
     }
 }

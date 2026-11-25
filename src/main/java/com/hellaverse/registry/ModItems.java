@@ -5,6 +5,7 @@ import com.hellaverse.Ring;
 import com.hellaverse.item.GunItem;
 import com.hellaverse.item.RingKeyItem;
 import com.hellaverse.item.RpgItem;
+import com.hellaverse.item.SoldierBoyShieldItem;
 import java.util.EnumMap;
 import java.util.Map;
 import net.minecraft.sounds.SoundEvents;
@@ -42,6 +43,15 @@ public final class ModItems {
 
     public static final RegistryObject<Item> WEB_WEAVER_SPAWN_EGG = ITEMS.register("web_weaver_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.WEB_WEAVER, 0x3A3A44, 0xE8E8E8, new Item.Properties()));
+
+    public static final RegistryObject<Item> ADAM_SPAWN_EGG = ITEMS.register("adam_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ADAM, 0x1F4D2E, 0xC9A227, new Item.Properties()));
+    public static final RegistryObject<Item> SOLDIER_BOY_SPAWN_EGG = ITEMS.register("soldier_boy_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SOLDIER_BOY, 0xE8E8F0, 0xD4A93C, new Item.Properties()));
+
+    /** Escudo do Soldier Boy: durabilidade acima da netherite, 30 de dano. */
+    public static final RegistryObject<Item> SOLDIER_BOY_SHIELD = ITEMS.register("soldier_boy_shield",
+            () -> new SoldierBoyShieldItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     // ----------------------------------------------------------------- municao
     public static final RegistryObject<Item> PISTOL_AMMO = ITEMS.register("pistol_ammo", () -> new Item(new Item.Properties()));

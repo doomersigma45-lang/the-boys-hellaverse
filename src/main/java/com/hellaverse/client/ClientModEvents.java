@@ -11,6 +11,9 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = HellaverseMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientModEvents {
+    private static final boolean ADAM_SLIM = true;
+    private static final boolean SOLDIER_BOY_SLIM = false;
+
     private ClientModEvents() {}
 
     @SubscribeEvent
@@ -20,6 +23,10 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "homelander"));
         event.registerEntityRenderer(ModEntities.KIMIKO.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "kimiko"));
+        event.registerEntityRenderer(ModEntities.ADAM.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "adam", ADAM_SLIM));
+        event.registerEntityRenderer(ModEntities.SOLDIER_BOY.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "soldier_boy", SOLDIER_BOY_SLIM));
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));

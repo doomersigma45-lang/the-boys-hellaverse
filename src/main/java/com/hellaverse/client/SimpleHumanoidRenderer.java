@@ -16,7 +16,12 @@ public class SimpleHumanoidRenderer<T extends Mob> extends HumanoidMobRenderer<T
     private final ResourceLocation texture;
 
     public SimpleHumanoidRenderer(EntityRendererProvider.Context context, String textureName) {
-        super(context, new PlayerModel<>(context.bakeLayer(ModelLayers.PLAYER), false), 0.5F);
+        this(context, textureName, false);
+    }
+
+    /** @param slim true para skins de bracos finos (Alex, 3 px). */
+    public SimpleHumanoidRenderer(EntityRendererProvider.Context context, String textureName, boolean slim) {
+        super(context, new PlayerModel<>(context.bakeLayer(slim ? ModelLayers.PLAYER_SLIM : ModelLayers.PLAYER), slim), 0.5F);
         this.texture = new ResourceLocation(HellaverseMod.MODID, "textures/entity/" + textureName + ".png");
     }
 

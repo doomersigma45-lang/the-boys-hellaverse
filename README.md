@@ -79,6 +79,22 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 | Portas | abre portas |
 | Teias | atira uma teia no alvo (3 a 14 blocos): Lentidão III por 3 s e uma teia no local, que some em 10 s |
 
+## Adam (boss)
+- **HP 650**, dano 60, voa, barra de vida de boss (amarela). Skin própria (braço fino).
+- **Laser**: 30 de dano por pulso, atravessa paredes e **destrói qualquer bloco quebrável** no caminho
+  (respeita a gamerule `mobGriefing`; blocos inquebráveis como bedrock e barreira não são afetados).
+- Hostil: ataca jogadores e quem o atacar. Ovo de geração: `Adam`.
+
+## Soldier Boy (boss)
+- **HP 450**, dano 75 por golpe (46 base + 29 do escudo), **imune a projéteis**, Resistência II e -25% de dano
+  (menos resistente que o Homelander, que tem -40%). Barra de vida azul.
+- **Chest blast** (`compound_v:chest_blast`): o efeito é concedido, e como o Compound V só o executa em jogadores,
+  o mob usa uma explosão de peito própria (carrega 2 s e detona perto do alvo).
+- **Escudo do Soldier Boy** (`hellaverse:soldier_boy_shield`): sempre dropa ao morrer, 30 de dano corpo a corpo,
+  bloqueia como um escudo normal e tem 3000 de durabilidade (netherite = 2031).
+- O escudo aparece como sprite 2D (sem modelo 3D de escudo).
+- Hostil: ataca jogadores e quem o atacar.
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

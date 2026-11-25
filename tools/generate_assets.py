@@ -185,6 +185,7 @@ WEAPON_NAMES = {  # id: (en, pt)
     "pistol_ammo": ("Pistol Ammo", "Munição de Pistola"), "smg_ammo": ("SMG Ammo", "Munição de Submetralhadora"),
     "rifle_ammo": ("Rifle Ammo", "Munição de Fuzil"), "sniper_ammo": ("Sniper Ammo", "Munição de Sniper"),
     "rpg_rocket": ("RPG Rocket", "Foguete de RPG"),
+    "soldier_boy_shield": ("Soldier Boy's Shield", "Escudo do Soldier Boy"),
 }
 
 
@@ -227,7 +228,8 @@ def gen_lang():
           "message.hellaverse.no_dimension": "This dimension is not available."}
     pt = {"itemGroup.hellaverse": "The Boys Hellaverse",
           "message.hellaverse.no_dimension": "Esta dimensão não está disponível."}
-    for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver")):
+    for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver"),
+                        ("adam", "Adam"), ("soldier_boy", "Soldier Boy")):
         en[f"entity.{MOD}.{ent}"] = label
         pt[f"entity.{MOD}.{ent}"] = label
         en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
@@ -328,7 +330,7 @@ def gen_tags():
 
 
 # Personagens com skin propria (textures/entity/<nome>.png e mantida a mao, nao e gerada aqui).
-CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver")
+CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy")
 
 
 def gen_characters():

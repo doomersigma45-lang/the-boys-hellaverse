@@ -28,6 +28,9 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.HOMELANDER_SPAWN_EGG.get());
                         output.accept(ModItems.KIMIKO_SPAWN_EGG.get());
                         output.accept(ModItems.WEB_WEAVER_SPAWN_EGG.get());
+                        output.accept(ModItems.ADAM_SPAWN_EGG.get());
+                        output.accept(ModItems.SOLDIER_BOY_SPAWN_EGG.get());
+                        output.accept(ModItems.SOLDIER_BOY_SHIELD.get());
                         for (var weapon : new net.minecraft.world.item.Item[] {
                                 ModItems.REVOLVER.get(), ModItems.UZI.get(), ModItems.AK47.get(),
                                 ModItems.SNIPER.get(), ModItems.RPG.get(),

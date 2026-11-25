@@ -1,6 +1,7 @@
 package com.hellaverse.client;
 
 import com.hellaverse.HellaverseMod;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.Mob;
  */
 public class SimpleHumanoidRenderer<T extends Mob> extends HumanoidMobRenderer<T, PlayerModel<T>> {
     private final ResourceLocation texture;
+    private float scale = 1.0F;
 
     public SimpleHumanoidRenderer(EntityRendererProvider.Context context, String textureName) {
         this(context, textureName, false);
@@ -23,6 +25,17 @@ public class SimpleHumanoidRenderer<T extends Mob> extends HumanoidMobRenderer<T
     public SimpleHumanoidRenderer(EntityRendererProvider.Context context, String textureName, boolean slim) {
         super(context, new PlayerModel<>(context.bakeLayer(slim ? ModelLayers.PLAYER_SLIM : ModelLayers.PLAYER), slim), 0.5F);
         this.texture = new ResourceLocation(HellaverseMod.MODID, "textures/entity/" + textureName + ".png");
+    }
+
+    /** Redimensiona o modelo (ex.: 0,65 para criaturas pequenas). */
+    public SimpleHumanoidRenderer<T> withScale(float scale) {
+        this.scale = scale;
+        return this;
+    }
+
+    @Override
+    protected void scale(T entity, PoseStack poseStack, float partialTick) {
+        poseStack.scale(scale, scale, scale);
     }
 
     @Override

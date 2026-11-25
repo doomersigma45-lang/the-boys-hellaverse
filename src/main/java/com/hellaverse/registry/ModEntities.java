@@ -2,12 +2,14 @@ package com.hellaverse.registry;
 
 import com.hellaverse.HellaverseMod;
 import com.hellaverse.entity.AdamEntity;
+import com.hellaverse.entity.AlastorEntity;
 import com.hellaverse.entity.BlackNoirEntity;
 import com.hellaverse.entity.CherriBombEntity;
 import com.hellaverse.entity.HomelanderEntity;
 import com.hellaverse.entity.KimikoEntity;
 import com.hellaverse.entity.LamplighterEntity;
 import com.hellaverse.entity.RocketEntity;
+import com.hellaverse.entity.ShadowDemonEntity;
 import com.hellaverse.entity.SoldierBoyEntity;
 import com.hellaverse.entity.WebWeaverEntity;
 import net.minecraft.world.entity.EntityType;
@@ -72,6 +74,18 @@ public final class ModEntities {
                     .clientTrackingRange(10)
                     .build(HellaverseMod.MODID + ":cherri_bomb"));
 
+    public static final RegistryObject<EntityType<AlastorEntity>> ALASTOR = ENTITY_TYPES.register("alastor",
+            () -> EntityType.Builder.of(AlastorEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":alastor"));
+
+    public static final RegistryObject<EntityType<ShadowDemonEntity>> SHADOW_DEMON = ENTITY_TYPES.register("shadow_demon",
+            () -> EntityType.Builder.of(ShadowDemonEntity::new, MobCategory.MISC)
+                    .sized(0.4F, 1.2F)
+                    .clientTrackingRange(10)
+                    .build(HellaverseMod.MODID + ":shadow_demon"));
+
     public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
             () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
                     .sized(0.4F, 0.4F)
@@ -89,6 +103,8 @@ public final class ModEntities {
         event.put(WEB_WEAVER.get(), WebWeaverEntity.createAttributes().build());
         event.put(LAMPLIGHTER.get(), LamplighterEntity.createAttributes().build());
         event.put(CHERRI_BOMB.get(), CherriBombEntity.createAttributes().build());
+        event.put(ALASTOR.get(), AlastorEntity.createAttributes().build());
+        event.put(SHADOW_DEMON.get(), ShadowDemonEntity.createAttributes().build());
         event.put(ADAM.get(), AdamEntity.createAttributes().build());
         event.put(SOLDIER_BOY.get(), SoldierBoyEntity.createAttributes().build());
     }

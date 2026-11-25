@@ -104,6 +104,20 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 ## Cherri Bomb
 - **HP 18**, dano 2,5, muito rápida, **joga TNT aceso** no alvo e **não sofre dano de explosão**. Hostil a jogadores.
 
+## Alastor (boss)
+- **HP 500**, dano 25, **imune a projéteis**, barra de vida verde. Hostil a jogadores.
+- **Invoca demônios de sombra** (3 por vez, até 8 vivos) e faz brotar **tentáculos pretos com brilho verde**
+  em volta do alvo: aviso verde no chão por 1 s, depois 10 de dano e lentidão forte em quem estiver no local.
+  Os tentáculos são desenhados com partículas.
+- Segura o **Alastor Staff**, que sempre cai quando ele morre.
+
+## Demônio de Sombra
+- **HP 5**, dano 6, rápido. Protege o dono (jogador com o cajado ou o Alastor): ataca quem feriu o dono e o alvo do dono,
+  segue o dono, não fere o dono nem outros demônios dele e some após 30 s. Não tem ovo de geração.
+
+## Alastor Staff (`hellaverse:alastor_staff`)
+- Botão direito: invoca 3 demônios de sombra que protegem você (máx. 9 ao mesmo tempo, recarga de 20 s, 256 usos).
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

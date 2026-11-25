@@ -185,6 +185,7 @@ WEAPON_NAMES = {  # id: (en, pt)
     "pistol_ammo": ("Pistol Ammo", "Munição de Pistola"), "smg_ammo": ("SMG Ammo", "Munição de Submetralhadora"),
     "rifle_ammo": ("Rifle Ammo", "Munição de Fuzil"), "sniper_ammo": ("Sniper Ammo", "Munição de Sniper"),
     "rpg_rocket": ("RPG Rocket", "Foguete de RPG"),
+    "alastor_staff": ("Alastor's Staff", "Cajado do Alastor"),
     "lighter": ("Lamplighter's Lighter", "Isqueiro do Lamplighter"),
     "soldier_boy_shield": ("Soldier Boy's Shield", "Escudo do Soldier Boy"),
 }
@@ -231,7 +232,8 @@ def gen_lang():
           "message.hellaverse.no_dimension": "Esta dimensão não está disponível."}
     for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver"),
                         ("adam", "Adam"), ("soldier_boy", "Soldier Boy"),
-                        ("lamplighter", "Lamplighter"), ("cherri_bomb", "Cherri Bomb")):
+                        ("lamplighter", "Lamplighter"), ("cherri_bomb", "Cherri Bomb"),
+                        ("alastor", "Alastor")):
         en[f"entity.{MOD}.{ent}"] = label
         pt[f"entity.{MOD}.{ent}"] = label
         en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
@@ -239,6 +241,10 @@ def gen_lang():
     for wid, (w_en, w_pt) in WEAPON_NAMES.items():
         en[f"item.{MOD}.{wid}"] = w_en
         pt[f"item.{MOD}.{wid}"] = w_pt
+    en[f"entity.{MOD}.shadow_demon"] = "Shadow Demon"
+    pt[f"entity.{MOD}.shadow_demon"] = "Demônio de Sombra"
+    en[f"tooltip.{MOD}.alastor_staff"] = "Right-click: summons shadow demons that protect you"
+    pt[f"tooltip.{MOD}.alastor_staff"] = "Botão direito: invoca demônios de sombra que protegem você"
     en[f"tooltip.{MOD}.gun_ammo"] = "Ammo: %s"
     pt[f"tooltip.{MOD}.gun_ammo"] = "Munição: %s"
     en[f"entity.{MOD}.black_noir"] = "Black Noir"
@@ -332,7 +338,7 @@ def gen_tags():
 
 
 # Personagens com skin propria (textures/entity/<nome>.png e mantida a mao, nao e gerada aqui).
-CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb")
+CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb", "alastor")
 
 
 def gen_characters():
@@ -364,7 +370,38 @@ def gen_lighter():
                {"parent": "minecraft:item/generated", "textures": {"layer0": f"{MOD}:item/lighter"}})
 
 
+def gen_shadow_demon():
+    """Skin do demonio de sombra: corpo preto com olhos e detalhes verdes brilhantes."""
+    img = Image.new("RGBA", (64, 64), (10, 10, 14, 255))
+    px = img.load()
+    rng = random.Random(7)
+    for y in range(64):
+        for x in range(64):
+            v = rng.randint(0, 8)
+            px[x, y] = (10 + v, 10 + v, 14 + v, 255)
+    # remove as camadas de sobreposicao (chapeu, jaqueta, mangas e calcas externas)
+    for box in ((32, 0, 64, 16), (0, 32, 16, 48), (16, 32, 40, 48), (40, 32, 56, 48),
+                (0, 48, 16, 64), (48, 48, 64, 64)):
+        for y in range(box[1], box[3]):
+            for x in range(box[0], box[2]):
+                px[x, y] = (0, 0, 0, 0)
+    green, glow = (40, 255, 110, 255), (170, 255, 200, 255)
+    for (x, y) in ((9, 12), (10, 12), (13, 12), (14, 12)):
+        px[x, y] = green
+    px[10, 12] = glow
+    px[13, 12] = glow
+    for x in range(10, 14):          # sorriso
+        px[x, 14] = (30, 200, 90, 255)
+    for y in range(20, 32):          # linha verde no peito e costas
+        px[21 + 0, y] = (30, 200, 90, 255) if y % 3 else (10, 10, 14, 255)
+        px[34, y] = (30, 200, 90, 255) if y % 3 else (10, 10, 14, 255)
+    for x in range(40, 56):          # punhos
+        px[x, 31] = (30, 200, 90, 255)
+    save_png(img, f"{ASSETS}/textures/entity/shadow_demon.png")
+
+
 def main():
+    gen_shadow_demon()
     gen_lighter()
     gen_characters()
     gen_weapons()

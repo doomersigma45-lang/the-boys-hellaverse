@@ -2,6 +2,7 @@ package com.hellaverse.registry;
 
 import com.hellaverse.HellaverseMod;
 import com.hellaverse.Ring;
+import com.hellaverse.item.AlastorStaffItem;
 import com.hellaverse.item.GunItem;
 import com.hellaverse.item.RingKeyItem;
 import com.hellaverse.item.RpgItem;
@@ -54,6 +55,11 @@ public final class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.LAMPLIGHTER, 0x1A1A1A, 0xFF7A18, new Item.Properties()));
     public static final RegistryObject<Item> CHERRI_BOMB_SPAWN_EGG = ITEMS.register("cherri_bomb_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.CHERRI_BOMB, 0xF2A7C3, 0xB3123A, new Item.Properties()));
+
+    public static final RegistryObject<Item> ALASTOR_SPAWN_EGG = ITEMS.register("alastor_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ALASTOR, 0x0D0D12, 0x2BFF7A, new Item.Properties()));
+    public static final RegistryObject<Item> ALASTOR_STAFF = ITEMS.register("alastor_staff",
+            () -> new AlastorStaffItem(new Item.Properties().stacksTo(1).durability(256).rarity(Rarity.EPIC)));
 
     /** Isqueiro do Lamplighter: funciona como isqueiro de pederneira. */
     public static final RegistryObject<Item> LIGHTER = ITEMS.register("lighter",

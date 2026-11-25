@@ -118,7 +118,7 @@ public class GunItem extends Item {
         Vec3 from = player.getEyePosition();
         float yaw = player.getYRot() + (float) (level.random.nextGaussian() * stats.spread());
         float pitch = player.getXRot() + (float) (level.random.nextGaussian() * stats.spread());
-        Vec3 dir = player.calculateViewVector(pitch, yaw);
+        Vec3 dir = Vec3.directionFromRotation(pitch, yaw);
         Vec3 to = from.add(dir.scale(stats.range()));
 
         BlockHitResult blockHit = level.clip(new ClipContext(from, to,

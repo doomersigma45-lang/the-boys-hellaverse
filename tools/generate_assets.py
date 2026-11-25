@@ -185,6 +185,7 @@ WEAPON_NAMES = {  # id: (en, pt)
     "pistol_ammo": ("Pistol Ammo", "Munição de Pistola"), "smg_ammo": ("SMG Ammo", "Munição de Submetralhadora"),
     "rifle_ammo": ("Rifle Ammo", "Munição de Fuzil"), "sniper_ammo": ("Sniper Ammo", "Munição de Sniper"),
     "rpg_rocket": ("RPG Rocket", "Foguete de RPG"),
+    "lighter": ("Lamplighter's Lighter", "Isqueiro do Lamplighter"),
     "soldier_boy_shield": ("Soldier Boy's Shield", "Escudo do Soldier Boy"),
 }
 
@@ -229,7 +230,8 @@ def gen_lang():
     pt = {"itemGroup.hellaverse": "The Boys Hellaverse",
           "message.hellaverse.no_dimension": "Esta dimensão não está disponível."}
     for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver"),
-                        ("adam", "Adam"), ("soldier_boy", "Soldier Boy")):
+                        ("adam", "Adam"), ("soldier_boy", "Soldier Boy"),
+                        ("lamplighter", "Lamplighter"), ("cherri_bomb", "Cherri Bomb")):
         en[f"entity.{MOD}.{ent}"] = label
         pt[f"entity.{MOD}.{ent}"] = label
         en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
@@ -330,7 +332,7 @@ def gen_tags():
 
 
 # Personagens com skin propria (textures/entity/<nome>.png e mantida a mao, nao e gerada aqui).
-CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy")
+CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb")
 
 
 def gen_characters():
@@ -339,7 +341,31 @@ def gen_characters():
                    {"parent": "minecraft:item/template_spawn_egg"})
 
 
+def gen_lighter():
+    """Isqueiro do Lamplighter (16x16): corpo de metal com chama."""
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    px = img.load()
+    for x in range(5, 11):
+        for y in range(7, 14):
+            shade = (70, 70, 78, 255) if x in (5, 10) else (110, 110, 120, 255)
+            px[x, y] = shade
+    for x in range(5, 11):
+        px[x, 7] = (170, 170, 180, 255)
+        px[x, 13] = (45, 45, 52, 255)
+    for x in range(7, 9):
+        for y in range(5, 7):
+            px[x, y] = (150, 150, 160, 255)
+    for (x, y, c) in ((7, 4, (255, 210, 60, 255)), (8, 4, (255, 210, 60, 255)),
+                      (7, 3, (255, 140, 20, 255)), (8, 3, (255, 140, 20, 255)),
+                      (8, 2, (255, 70, 10, 255)), (7, 5, (255, 230, 120, 255))):
+        px[x, y] = c
+    img.save(f"{ASSETS}/textures/item/lighter.png")
+    write_json(f"{ASSETS}/models/item/lighter.json",
+               {"parent": "minecraft:item/generated", "textures": {"layer0": f"{MOD}:item/lighter"}})
+
+
 def main():
+    gen_lighter()
     gen_characters()
     gen_weapons()
     for ring in RINGS:

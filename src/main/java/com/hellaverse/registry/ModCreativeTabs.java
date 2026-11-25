@@ -31,6 +31,9 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.ADAM_SPAWN_EGG.get());
                         output.accept(ModItems.SOLDIER_BOY_SPAWN_EGG.get());
                         output.accept(ModItems.SOLDIER_BOY_SHIELD.get());
+                        output.accept(ModItems.LAMPLIGHTER_SPAWN_EGG.get());
+                        output.accept(ModItems.CHERRI_BOMB_SPAWN_EGG.get());
+                        output.accept(ModItems.LIGHTER.get());
                         for (var weapon : new net.minecraft.world.item.Item[] {
                                 ModItems.REVOLVER.get(), ModItems.UZI.get(), ModItems.AK47.get(),
                                 ModItems.SNIPER.get(), ModItems.RPG.get(),

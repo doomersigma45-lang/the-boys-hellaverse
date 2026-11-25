@@ -3,8 +3,10 @@ package com.hellaverse.registry;
 import com.hellaverse.HellaverseMod;
 import com.hellaverse.entity.AdamEntity;
 import com.hellaverse.entity.BlackNoirEntity;
+import com.hellaverse.entity.CherriBombEntity;
 import com.hellaverse.entity.HomelanderEntity;
 import com.hellaverse.entity.KimikoEntity;
+import com.hellaverse.entity.LamplighterEntity;
 import com.hellaverse.entity.RocketEntity;
 import com.hellaverse.entity.SoldierBoyEntity;
 import com.hellaverse.entity.WebWeaverEntity;
@@ -58,6 +60,18 @@ public final class ModEntities {
                     .clientTrackingRange(16)
                     .build(HellaverseMod.MODID + ":soldier_boy"));
 
+    public static final RegistryObject<EntityType<LamplighterEntity>> LAMPLIGHTER = ENTITY_TYPES.register("lamplighter",
+            () -> EntityType.Builder.of(LamplighterEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(10)
+                    .build(HellaverseMod.MODID + ":lamplighter"));
+
+    public static final RegistryObject<EntityType<CherriBombEntity>> CHERRI_BOMB = ENTITY_TYPES.register("cherri_bomb",
+            () -> EntityType.Builder.of(CherriBombEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(10)
+                    .build(HellaverseMod.MODID + ":cherri_bomb"));
+
     public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
             () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
                     .sized(0.4F, 0.4F)
@@ -73,6 +87,8 @@ public final class ModEntities {
         event.put(HOMELANDER.get(), HomelanderEntity.createAttributes().build());
         event.put(KIMIKO.get(), KimikoEntity.createAttributes().build());
         event.put(WEB_WEAVER.get(), WebWeaverEntity.createAttributes().build());
+        event.put(LAMPLIGHTER.get(), LamplighterEntity.createAttributes().build());
+        event.put(CHERRI_BOMB.get(), CherriBombEntity.createAttributes().build());
         event.put(ADAM.get(), AdamEntity.createAttributes().build());
         event.put(SOLDIER_BOY.get(), SoldierBoyEntity.createAttributes().build());
     }

@@ -10,6 +10,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.FlintAndSteelItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -48,6 +49,15 @@ public final class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.ADAM, 0x1F4D2E, 0xC9A227, new Item.Properties()));
     public static final RegistryObject<Item> SOLDIER_BOY_SPAWN_EGG = ITEMS.register("soldier_boy_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.SOLDIER_BOY, 0xE8E8F0, 0xD4A93C, new Item.Properties()));
+
+    public static final RegistryObject<Item> LAMPLIGHTER_SPAWN_EGG = ITEMS.register("lamplighter_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.LAMPLIGHTER, 0x1A1A1A, 0xFF7A18, new Item.Properties()));
+    public static final RegistryObject<Item> CHERRI_BOMB_SPAWN_EGG = ITEMS.register("cherri_bomb_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.CHERRI_BOMB, 0xF2A7C3, 0xB3123A, new Item.Properties()));
+
+    /** Isqueiro do Lamplighter: funciona como isqueiro de pederneira. */
+    public static final RegistryObject<Item> LIGHTER = ITEMS.register("lighter",
+            () -> new FlintAndSteelItem(new Item.Properties().stacksTo(1).durability(256)));
 
     /** Escudo do Soldier Boy: durabilidade acima da netherite, 30 de dano. */
     public static final RegistryObject<Item> SOLDIER_BOY_SHIELD = ITEMS.register("soldier_boy_shield",

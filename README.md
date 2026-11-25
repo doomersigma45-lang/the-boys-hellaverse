@@ -95,6 +95,15 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 - O escudo aparece como sprite 2D (sem modelo 3D de escudo).
 - Hostil: ataca jogadores e quem o atacar.
 
+## Lamplighter
+- **HP 100**, dano 20, abre portas, efeito `compound_v_tweaks:lamplighter` permanente. Hostil a jogadores, imune a fogo.
+- **Bolas de fogo** (como as do Ghast) e **laser de fogo** (6 de dano por pulso + queima, partículas de chama,
+  precisa de linha de visão, acende fogo no ponto final; bem mais fraco que o laser do Adam e não quebra blocos).
+- Arma: o **Isqueiro do Lamplighter** (`hellaverse:lighter`), que funciona como isqueiro de pederneira.
+
+## Cherri Bomb
+- **HP 18**, dano 2,5, muito rápida, **joga TNT aceso** no alvo e **não sofre dano de explosão**. Hostil a jogadores.
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

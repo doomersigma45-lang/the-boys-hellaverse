@@ -9,6 +9,7 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -101,6 +102,16 @@ public class BlackNoirEntity extends PathfinderMob {
     @Override
     public boolean onClimbable() {
         return horizontalCollision;
+    }
+
+    // ----------------------------------------------------------------- efeitos permanentes
+    @Override
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        if (tickCount % 40 == 0) {
+            PermanentEffects.grant(this, MobEffects.DAMAGE_RESISTANCE, 2); // Resistencia III
+            PermanentEffects.grant(this, PermanentEffects.lookup("compound_v", "generic"), 0);
+        }
     }
 
     // ----------------------------------------------------------------- dano

@@ -19,6 +19,8 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "homelander"));
         event.registerEntityRenderer(ModEntities.KIMIKO.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "kimiko"));
+        event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));
     }
 
     @SubscribeEvent

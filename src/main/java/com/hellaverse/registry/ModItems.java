@@ -37,5 +37,8 @@ public final class ModItems {
     public static final RegistryObject<Item> KIMIKO_SPAWN_EGG = ITEMS.register("kimiko_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.KIMIKO, 0xE6A5C0, 0x6B1F3A, new Item.Properties()));
 
+    public static final RegistryObject<Item> WEB_WEAVER_SPAWN_EGG = ITEMS.register("web_weaver_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.WEB_WEAVER, 0x3A3A44, 0xE8E8E8, new Item.Properties()));
+
     private ModItems() {}
 }

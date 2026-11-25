@@ -4,6 +4,7 @@ import com.hellaverse.HellaverseMod;
 import com.hellaverse.entity.BlackNoirEntity;
 import com.hellaverse.entity.HomelanderEntity;
 import com.hellaverse.entity.KimikoEntity;
+import com.hellaverse.entity.WebWeaverEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -36,6 +37,12 @@ public final class ModEntities {
                     .clientTrackingRange(10)
                     .build(HellaverseMod.MODID + ":kimiko"));
 
+    public static final RegistryObject<EntityType<WebWeaverEntity>> WEB_WEAVER = ENTITY_TYPES.register("web_weaver",
+            () -> EntityType.Builder.of(WebWeaverEntity::new, MobCategory.CREATURE)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(10)
+                    .build(HellaverseMod.MODID + ":web_weaver"));
+
     private ModEntities() {}
 
     @SubscribeEvent
@@ -43,5 +50,6 @@ public final class ModEntities {
         event.put(BLACK_NOIR.get(), BlackNoirEntity.createAttributes().build());
         event.put(HOMELANDER.get(), HomelanderEntity.createAttributes().build());
         event.put(KIMIKO.get(), KimikoEntity.createAttributes().build());
+        event.put(WEB_WEAVER.get(), WebWeaverEntity.createAttributes().build());
     }
 }

@@ -31,6 +31,7 @@ Mob neutro com a skin enviada, disponível no ovo de spawn da aba criativa.
 | Atributo | Valor |
 |---|---|
 | Vida | 130 |
+| Efeitos | Resistência III e `compound_v:generic` (permanentes) |
 | Dano | 35 por golpe (atributo base 24 + espada de netherite 7 + Afiação 7 = 4) |
 | Arma | espada de netherite com Afiação 7 |
 | Projéteis | imune (flechas quicam); quem atirou vira alvo |
@@ -42,7 +43,7 @@ Mob neutro com a skin enviada, disponível no ovo de spawn da aba criativa.
 
 ## Homelander
 
-Neutro e hostil: só ataca **mobs hostis** (não revida jogadores). Ovo de spawn na aba criativa. Aparência provisória de cor sólida (azul).
+Neutro e hostil: só ataca **mobs hostis** (não revida jogadores). Ovo de spawn na aba criativa. Skin própria (128x128).
 
 | Atributo | Valor |
 |---|---|
@@ -56,7 +57,7 @@ Neutro e hostil: só ataca **mobs hostis** (não revida jogadores). Ovo de spawn
 
 ## Kimiko
 
-Neutra e passiva: só revida quem a atacar. Aparência provisória de cor sólida (rosa).
+Neutra e passiva: só revida quem a atacar. Skin própria.
 
 | Atributo | Valor |
 |---|---|
@@ -64,7 +65,18 @@ Neutra e passiva: só revida quem a atacar. Aparência provisória de cor sólid
 | Efeitos | Regeneração III (permanente) |
 | Portas | abre portas e quebra as que não consegue abrir |
 
-Para trocar a aparência dos dois, substitua `textures/entity/homelander.png` e `kimiko.png` (64x64, braços clássicos) e **remova** as entradas `SOLID_SKINS` em `tools/generate_assets.py`, senão o script as sobrescreve.
+As skins ficam em `textures/entity/<nome>.png` (modelo de jogador, braços clássicos). Para trocar uma, basta substituir o PNG.
+
+## Web Weaver
+
+Neutro e passivo: só revida quem o atacar. Skin própria.
+
+| Atributo | Valor |
+|---|---|
+| Vida / dano | 30 / 6,5 |
+| Movimento | escala paredes |
+| Portas | abre portas |
+| Teias | atira uma teia no alvo (3 a 14 blocos): Lentidão III por 3 s e uma teia no local, que some em 10 s |
 
 ## Como viajar (provisório)
 

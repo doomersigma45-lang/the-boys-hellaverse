@@ -45,6 +45,8 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.CROWBAR.get());
                         output.accept(ModItems.SATAN_SPAWN_EGG.get());
                         output.accept(ModItems.BOMBSIGHT_SPAWN_EGG.get());
+                        output.accept(ModItems.RYAN_SPAWN_EGG.get());
+                        output.accept(ModItems.OCTAVIA_SPAWN_EGG.get());
                         output.accept(ModItems.ALASTOR_SPAWN_EGG.get());
                         output.accept(ModItems.ALASTOR_STAFF.get());
                         for (var weapon : new net.minecraft.world.item.Item[] {

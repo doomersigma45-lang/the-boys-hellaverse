@@ -7,6 +7,9 @@ import com.hellaverse.entity.AsmodeusEntity;
 import com.hellaverse.entity.BeelzebubEntity;
 import com.hellaverse.entity.BillyButcherEntity;
 import com.hellaverse.entity.BlackNoirEntity;
+import com.hellaverse.entity.OctaviaEntity;
+import com.hellaverse.entity.PinkMagicEntity;
+import com.hellaverse.entity.RyanEntity;
 import com.hellaverse.entity.BombsightEntity;
 import com.hellaverse.entity.SatanEntity;
 import com.hellaverse.entity.BlitzoEntity;
@@ -165,6 +168,25 @@ public final class ModEntities {
                     .clientTrackingRange(16)
                     .build(HellaverseMod.MODID + ":bombsight"));
 
+    public static final RegistryObject<EntityType<RyanEntity>> RYAN = ENTITY_TYPES.register("ryan",
+            () -> EntityType.Builder.of(RyanEntity::new, MobCategory.CREATURE)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":ryan"));
+
+    public static final RegistryObject<EntityType<OctaviaEntity>> OCTAVIA = ENTITY_TYPES.register("octavia",
+            () -> EntityType.Builder.of(OctaviaEntity::new, MobCategory.CREATURE)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(10)
+                    .build(HellaverseMod.MODID + ":octavia"));
+
+    public static final RegistryObject<EntityType<PinkMagicEntity>> PINK_MAGIC = ENTITY_TYPES.register("pink_magic",
+            () -> EntityType.Builder.<PinkMagicEntity>of(PinkMagicEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build(HellaverseMod.MODID + ":pink_magic"));
+
     public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
             () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
                     .sized(0.4F, 0.4F)
@@ -194,6 +216,8 @@ public final class ModEntities {
         event.put(BLITZO.get(), BlitzoEntity.createAttributes().build());
         event.put(SATAN.get(), SatanEntity.createAttributes().build());
         event.put(BOMBSIGHT.get(), BombsightEntity.createAttributes().build());
+        event.put(RYAN.get(), RyanEntity.createAttributes().build());
+        event.put(OCTAVIA.get(), OctaviaEntity.createAttributes().build());
         event.put(ADAM.get(), AdamEntity.createAttributes().build());
         event.put(SOLDIER_BOY.get(), SoldierBoyEntity.createAttributes().build());
     }

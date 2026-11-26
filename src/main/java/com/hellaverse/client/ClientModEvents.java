@@ -56,6 +56,11 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "satan").withScale(5.0F));
         event.registerEntityRenderer(ModEntities.BOMBSIGHT.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "bombsight"));
+        event.registerEntityRenderer(ModEntities.RYAN.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "ryan"));
+        event.registerEntityRenderer(ModEntities.OCTAVIA.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "octavia"));
+        event.registerEntityRenderer(ModEntities.PINK_MAGIC.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));

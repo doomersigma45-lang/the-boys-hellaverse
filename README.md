@@ -190,6 +190,18 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 - **Resistência VI** permanente. Atenção: no jogo, Resistência V ou maior já anula praticamente todo dano, então ele só
   morre por `/kill`, vazio e danos que ignoram resistência. Para mudar, altere `RESISTANCE_AMPLIFIER` em `BombsightEntity`.
 
+## Ryan
+- **HP 250**, dano 35, **todo dano recebido reduzido em 19%**, **voa** e dispara laser pelos olhos (efeitos
+  `compound_v:creative_flight` e `compound_v:laser_eyes_advanced`), identifica mobs hostis de longe.
+- **Quebra blocos** e abre portas no caminho do alvo, **mais devagar** que o Homelander (18 ticks por bloco contra 10)
+  e também mais lento ao andar. Neutro: ataca mobs hostis e revida quem o atacar. Aparência provisória: vermelho sólido.
+
+## Octavia
+- **HP 95**, dano 7,5, neutra: revida quem a atacar e ataca mobs hostis. Aparência provisória: preto sólido.
+- **Escudo rosa**: ao ser ferida cria uma bolha rosa (partículas) que absorve todo o dano por até 5 s ou até acumular
+  30 de dano; recarga de 8 s.
+- **Magia rosa**: projétil de energia rosa (8 de dano mágico, ignora armadura), até 28 blocos.
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

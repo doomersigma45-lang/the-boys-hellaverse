@@ -92,6 +92,11 @@ public final class ModItems {
     public static final RegistryObject<Item> BOMBSIGHT_SPAWN_EGG = ITEMS.register("bombsight_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.BOMBSIGHT, 0x7A4B24, 0xFF8A00, new Item.Properties()));
 
+    public static final RegistryObject<Item> RYAN_SPAWN_EGG = ITEMS.register("ryan_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.RYAN, 0xD01818, 0xF0D8A0, new Item.Properties()));
+    public static final RegistryObject<Item> OCTAVIA_SPAWN_EGG = ITEMS.register("octavia_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.OCTAVIA, 0x111114, 0xFF66C4, new Item.Properties()));
+
     /** Isqueiro do Lamplighter: funciona como isqueiro de pederneira. */
     public static final RegistryObject<Item> LIGHTER = ITEMS.register("lighter",
             () -> new FlintAndSteelItem(new Item.Properties().stacksTo(1).durability(256)));

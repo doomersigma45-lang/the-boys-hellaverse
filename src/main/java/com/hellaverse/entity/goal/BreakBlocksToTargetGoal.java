@@ -21,15 +21,22 @@ import net.minecraft.world.phys.Vec3;
  */
 public class BreakBlocksToTargetGoal extends Goal {
     private static final double REACH_SQR = 3.5D * 3.5D;
-    private static final int BREAK_TICKS = 10;
+    private static final int DEFAULT_BREAK_TICKS = 10;
 
     private final Mob mob;
+    private final int breakTicks;
     @Nullable
     private BlockPos barrier;
     private int progress;
 
     public BreakBlocksToTargetGoal(Mob mob) {
+        this(mob, DEFAULT_BREAK_TICKS);
+    }
+
+    /** @param breakTicks ticks para quebrar cada bloco (maior = mais lento). */
+    public BreakBlocksToTargetGoal(Mob mob, int breakTicks) {
         this.mob = mob;
+        this.breakTicks = breakTicks;
         setFlags(EnumSet.of(Flag.LOOK));
     }
 
@@ -79,8 +86,8 @@ public class BreakBlocksToTargetGoal extends Goal {
         if (progress % 4 == 0) {
             mob.swing(InteractionHand.MAIN_HAND);
         }
-        mob.level().destroyBlockProgress(mob.getId(), barrier, progress * 10 / BREAK_TICKS);
-        if (progress >= BREAK_TICKS) {
+        mob.level().destroyBlockProgress(mob.getId(), barrier, progress * 10 / breakTicks);
+        if (progress >= breakTicks) {
             mob.level().destroyBlock(barrier, false, mob);
             mob.level().destroyBlockProgress(mob.getId(), barrier, -1);
             barrier = null;

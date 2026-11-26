@@ -48,6 +48,10 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "stormfront"));
         event.registerEntityRenderer(ModEntities.BEELZEBUB.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "beelzebub"));
+        event.registerEntityRenderer(ModEntities.BILLY_BUTCHER.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "billy_butcher"));
+        event.registerEntityRenderer(ModEntities.BLITZO.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "blitzo").withScale(0.86F));
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));

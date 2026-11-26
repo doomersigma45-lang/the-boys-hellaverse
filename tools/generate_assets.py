@@ -186,6 +186,7 @@ WEAPON_NAMES = {  # id: (en, pt)
     "rifle_ammo": ("Rifle Ammo", "Munição de Fuzil"), "sniper_ammo": ("Sniper Ammo", "Munição de Sniper"),
     "rpg_rocket": ("RPG Rocket", "Foguete de RPG"),
     "alastor_staff": ("Alastor's Staff", "Cajado do Alastor"),
+    "crowbar": ("Crowbar", "Pé de Cabra"),
     "lighter": ("Lamplighter's Lighter", "Isqueiro do Lamplighter"),
     "soldier_boy_shield": ("Soldier Boy's Shield", "Escudo do Soldier Boy"),
 }
@@ -233,7 +234,7 @@ def gen_lang():
     for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver"),
                         ("adam", "Adam"), ("soldier_boy", "Soldier Boy"),
                         ("lamplighter", "Lamplighter"), ("cherri_bomb", "Cherri Bomb"),
-                        ("alastor", "Alastor"), ("frenchie", "Frenchie"), ("moxxie", "Moxxie"), ("asmodeus", "Asmodeus"), ("vox", "Vox"), ("stormfront", "Stormfront"), ("beelzebub", "Beelzebub")):
+                        ("alastor", "Alastor"), ("frenchie", "Frenchie"), ("moxxie", "Moxxie"), ("asmodeus", "Asmodeus"), ("vox", "Vox"), ("stormfront", "Stormfront"), ("beelzebub", "Beelzebub"), ("billy_butcher", "Billy Butcher"), ("blitzo", "Blitzo")):
         en[f"entity.{MOD}.{ent}"] = label
         pt[f"entity.{MOD}.{ent}"] = label
         en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
@@ -338,7 +339,7 @@ def gen_tags():
 
 
 # Personagens com skin propria (textures/entity/<nome>.png e mantida a mao, nao e gerada aqui).
-CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb", "alastor", "frenchie", "moxxie", "asmodeus", "vox", "stormfront", "beelzebub")
+CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb", "alastor", "frenchie", "moxxie", "asmodeus", "vox", "stormfront", "beelzebub", "billy_butcher", "blitzo")
 
 
 def gen_characters():
@@ -409,7 +410,25 @@ def gen_solid_skins():
             save_png(Image.new("RGBA", (64, 64), color), path)
 
 
+def gen_crowbar():
+    """Pe de cabra (16x16): haste de ferro vermelha com ponta curva."""
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    px = img.load()
+    red, dark, steel = (190, 35, 35, 255), (110, 20, 20, 255), (170, 170, 178, 255)
+    for i in range(2, 13):           # haste diagonal
+        px[i, 15 - i] = red
+        px[i + 1, 15 - i] = dark if i % 2 else red
+    for (x, y) in ((1, 13), (1, 14), (2, 14), (0, 14), (0, 15), (1, 15)):  # ponta curva
+        px[x, y] = steel
+    for (x, y) in ((13, 2), (14, 1), (14, 2), (13, 1), (12, 1)):           # cabo
+        px[x, y] = steel
+    img.save(f"{ASSETS}/textures/item/crowbar.png")
+    write_json(f"{ASSETS}/models/item/crowbar.json",
+               {"parent": "minecraft:item/handheld", "textures": {"layer0": f"{MOD}:item/crowbar"}})
+
+
 def main():
+    gen_crowbar()
     gen_solid_skins()
     gen_shadow_demon()
     gen_lighter()

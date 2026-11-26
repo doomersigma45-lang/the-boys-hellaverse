@@ -157,6 +157,15 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 - **Fúria** ao chegar em 50% da vida: dano ×1,5 (135), +30% de velocidade, Força II, barra de vida vermelha,
   rugido e partículas de chama.
 
+## Billy Butcher
+- **HP 35**, dano de jogador (1 de base), abre portas, neutro/agressivo: revida quem o atacar e ataca mobs hostis.
+- Arma: **pé de cabra** (`hellaverse:crowbar`, 5 de dano) de perto; a partir de 12 blocos troca para a **sniper**
+  (sem gastar munição). Skin própria.
+
+## Blitzo
+- **HP 17**, dano corpo a corpo 0,75 (menos que o jogador), abre portas, **hostil** a jogadores, atira de **revólver**.
+  Um pouco maior que o Moxxie (86% do tamanho, contra 78%). Skin própria.
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

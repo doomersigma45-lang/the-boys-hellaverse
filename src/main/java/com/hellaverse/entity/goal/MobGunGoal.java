@@ -4,6 +4,7 @@ import com.hellaverse.entity.RocketEntity;
 import com.hellaverse.item.GunItem;
 import com.hellaverse.item.RpgItem;
 import java.util.EnumSet;
+import javax.annotation.Nullable;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -31,11 +32,19 @@ public class MobGunGoal extends Goal {
     private final WeaponChooser chooser;
     private final double minRange;
     private final double maxRange;
+    @Nullable
+    private final Item restItem;
     private Item weapon;
     private int cooldown;
 
     public MobGunGoal(Mob mob, double minRange, double maxRange, WeaponChooser chooser) {
+        this(mob, minRange, maxRange, chooser, null);
+    }
+
+    /** @param restItem item de volta na mao quando para de atirar (ex.: pe de cabra); null = mantem a arma. */
+    public MobGunGoal(Mob mob, double minRange, double maxRange, WeaponChooser chooser, @Nullable Item restItem) {
         this.mob = mob;
+        this.restItem = restItem;
         this.minRange = minRange;
         this.maxRange = maxRange;
         this.chooser = chooser;
@@ -56,7 +65,7 @@ public class MobGunGoal extends Goal {
     public boolean canContinueToUse() {
         LivingEntity target = mob.getTarget();
         return target != null && target.isAlive() && mob.distanceTo(target) <= maxRange + 4.0D
-                && mob.hasLineOfSight(target);
+                && mob.distanceTo(target) >= minRange * 0.5D && mob.hasLineOfSight(target);
     }
 
     @Override
@@ -68,6 +77,10 @@ public class MobGunGoal extends Goal {
     @Override
     public void stop() {
         mob.getNavigation().stop();
+        if (restItem != null && !mob.getMainHandItem().is(restItem)) {
+            mob.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(restItem));
+            weapon = null;
+        }
     }
 
     @Override

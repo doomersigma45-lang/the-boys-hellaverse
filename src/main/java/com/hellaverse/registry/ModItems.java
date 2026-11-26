@@ -3,6 +3,7 @@ package com.hellaverse.registry;
 import com.hellaverse.HellaverseMod;
 import com.hellaverse.Ring;
 import com.hellaverse.item.AlastorStaffItem;
+import com.hellaverse.item.CrowbarItem;
 import com.hellaverse.item.GunItem;
 import com.hellaverse.item.RingKeyItem;
 import com.hellaverse.item.RpgItem;
@@ -76,6 +77,15 @@ public final class ModItems {
 
     public static final RegistryObject<Item> BEELZEBUB_SPAWN_EGG = ITEMS.register("beelzebub_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.BEELZEBUB, 0xF7C8DC, 0x3FD0E8, new Item.Properties()));
+
+    public static final RegistryObject<Item> BILLY_BUTCHER_SPAWN_EGG = ITEMS.register("billy_butcher_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.BILLY_BUTCHER, 0x1C2B4A, 0x8C1C1C, new Item.Properties()));
+    public static final RegistryObject<Item> BLITZO_SPAWN_EGG = ITEMS.register("blitzo_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.BLITZO, 0xD9262C, 0xF5F5F5, new Item.Properties()));
+
+    /** Pe de cabra do Billy Butcher. */
+    public static final RegistryObject<Item> CROWBAR = ITEMS.register("crowbar",
+            () -> new CrowbarItem(new Item.Properties().stacksTo(1)));
 
     /** Isqueiro do Lamplighter: funciona como isqueiro de pederneira. */
     public static final RegistryObject<Item> LIGHTER = ITEMS.register("lighter",

@@ -139,6 +139,17 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 - **Agachar**: se não há 5 blocos de altura livres onde está (ou à frente), ou se não acha caminho até o alvo, agacha
   (hitbox 0,9 x 1,9) para passar por portas e vãos; levanta quando cabe de novo.
 
+## Vox (boss)
+- **HP 550**, dano 30, hostil a jogadores, abre portas, imune a raios. Skin própria (braço fino).
+- **Teletransporte**: reaparece perto do alvo quando está longe (ou de surpresa) e às vezes salta para longe ao ser ferido.
+- **Raios**: marca o chão com faíscas por ~0,75 s e então cai um raio no alvo e outro em volta (20 de dano cada).
+  Os raios são só visuais: não causam incêndio nem convertem mobs.
+
+## Stormfront (boss)
+- **HP 350**, dano 25, hostil a jogadores, **voa**, abre portas (inclusive voando), imune a raios, efeito
+  `compound_v:stormfront` permanente. Skin própria em alta resolução (128x128).
+- **Raios**: três raios por vez (12 de dano cada), um no alvo e dois em volta, com aviso de faíscas.
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

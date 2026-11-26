@@ -15,6 +15,8 @@ import com.hellaverse.entity.MoxxieEntity;
 import com.hellaverse.entity.RocketEntity;
 import com.hellaverse.entity.ShadowDemonEntity;
 import com.hellaverse.entity.SoldierBoyEntity;
+import com.hellaverse.entity.StormfrontEntity;
+import com.hellaverse.entity.VoxEntity;
 import com.hellaverse.entity.WebWeaverEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -115,6 +117,18 @@ public final class ModEntities {
                     .updateInterval(10)
                     .build(HellaverseMod.MODID + ":blue_fireball"));
 
+    public static final RegistryObject<EntityType<VoxEntity>> VOX = ENTITY_TYPES.register("vox",
+            () -> EntityType.Builder.of(VoxEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":vox"));
+
+    public static final RegistryObject<EntityType<StormfrontEntity>> STORMFRONT = ENTITY_TYPES.register("stormfront",
+            () -> EntityType.Builder.of(StormfrontEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":stormfront"));
+
     public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
             () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
                     .sized(0.4F, 0.4F)
@@ -137,6 +151,8 @@ public final class ModEntities {
         event.put(FRENCHIE.get(), FrenchieEntity.createAttributes().build());
         event.put(MOXXIE.get(), MoxxieEntity.createAttributes().build());
         event.put(ASMODEUS.get(), AsmodeusEntity.createAttributes().build());
+        event.put(VOX.get(), VoxEntity.createAttributes().build());
+        event.put(STORMFRONT.get(), StormfrontEntity.createAttributes().build());
         event.put(ADAM.get(), AdamEntity.createAttributes().build());
         event.put(SOLDIER_BOY.get(), SoldierBoyEntity.createAttributes().build());
     }

@@ -42,6 +42,10 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "moxxie").withScale(0.78F));
         event.registerEntityRenderer(ModEntities.ASMODEUS.get(), AsmodeusRenderer::new);
         event.registerEntityRenderer(ModEntities.BLUE_FIREBALL.get(), NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.VOX.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "vox", true));
+        event.registerEntityRenderer(ModEntities.STORMFRONT.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "stormfront"));
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));

@@ -233,7 +233,7 @@ def gen_lang():
     for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver"),
                         ("adam", "Adam"), ("soldier_boy", "Soldier Boy"),
                         ("lamplighter", "Lamplighter"), ("cherri_bomb", "Cherri Bomb"),
-                        ("alastor", "Alastor"), ("frenchie", "Frenchie"), ("moxxie", "Moxxie"), ("asmodeus", "Asmodeus")):
+                        ("alastor", "Alastor"), ("frenchie", "Frenchie"), ("moxxie", "Moxxie"), ("asmodeus", "Asmodeus"), ("vox", "Vox"), ("stormfront", "Stormfront")):
         en[f"entity.{MOD}.{ent}"] = label
         pt[f"entity.{MOD}.{ent}"] = label
         en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
@@ -338,7 +338,7 @@ def gen_tags():
 
 
 # Personagens com skin propria (textures/entity/<nome>.png e mantida a mao, nao e gerada aqui).
-CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb", "alastor", "frenchie", "moxxie", "asmodeus")
+CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb", "alastor", "frenchie", "moxxie", "asmodeus", "vox", "stormfront")
 
 
 def gen_characters():

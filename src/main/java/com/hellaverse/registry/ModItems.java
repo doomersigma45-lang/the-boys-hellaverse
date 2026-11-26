@@ -69,6 +69,11 @@ public final class ModItems {
     public static final RegistryObject<Item> ASMODEUS_SPAWN_EGG = ITEMS.register("asmodeus_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.ASMODEUS, 0x1E5BFF, 0x9FD8FF, new Item.Properties()));
 
+    public static final RegistryObject<Item> VOX_SPAWN_EGG = ITEMS.register("vox_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.VOX, 0x8E1B2E, 0x22E0FF, new Item.Properties()));
+    public static final RegistryObject<Item> STORMFRONT_SPAWN_EGG = ITEMS.register("stormfront_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.STORMFRONT, 0x1A1A1A, 0xC9302C, new Item.Properties()));
+
     /** Isqueiro do Lamplighter: funciona como isqueiro de pederneira. */
     public static final RegistryObject<Item> LIGHTER = ITEMS.register("lighter",
             () -> new FlintAndSteelItem(new Item.Properties().stacksTo(1).durability(256)));

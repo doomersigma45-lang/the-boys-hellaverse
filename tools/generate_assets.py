@@ -234,7 +234,7 @@ def gen_lang():
     for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver"),
                         ("adam", "Adam"), ("soldier_boy", "Soldier Boy"),
                         ("lamplighter", "Lamplighter"), ("cherri_bomb", "Cherri Bomb"),
-                        ("alastor", "Alastor"), ("frenchie", "Frenchie"), ("moxxie", "Moxxie"), ("asmodeus", "Asmodeus"), ("vox", "Vox"), ("stormfront", "Stormfront"), ("beelzebub", "Beelzebub"), ("billy_butcher", "Billy Butcher"), ("blitzo", "Blitzo")):
+                        ("alastor", "Alastor"), ("frenchie", "Frenchie"), ("moxxie", "Moxxie"), ("asmodeus", "Asmodeus"), ("vox", "Vox"), ("stormfront", "Stormfront"), ("beelzebub", "Beelzebub"), ("billy_butcher", "Billy Butcher"), ("blitzo", "Blitzo"), ("satan", "Satan"), ("bombsight", "Bombsight")):
         en[f"entity.{MOD}.{ent}"] = label
         pt[f"entity.{MOD}.{ent}"] = label
         en[f"item.{MOD}.{ent}_spawn_egg"] = f"{label} Spawn Egg"
@@ -339,7 +339,7 @@ def gen_tags():
 
 
 # Personagens com skin propria (textures/entity/<nome>.png e mantida a mao, nao e gerada aqui).
-CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb", "alastor", "frenchie", "moxxie", "asmodeus", "vox", "stormfront", "beelzebub", "billy_butcher", "blitzo")
+CHARACTERS = ("black_noir", "homelander", "kimiko", "web_weaver", "adam", "soldier_boy", "lamplighter", "cherri_bomb", "alastor", "frenchie", "moxxie", "asmodeus", "vox", "stormfront", "beelzebub", "billy_butcher", "blitzo", "satan", "bombsight")
 
 
 def gen_characters():
@@ -404,7 +404,8 @@ def gen_shadow_demon():
 def gen_solid_skins():
     """Skins de cor solida (provisorias) ate haver texturas reais. Substitua os PNGs por skins 64x64."""
     for name, color in (("frenchie", (30, 90, 220, 255)), ("moxxie", (200, 50, 45, 255)),
-                        ("asmodeus", (35, 100, 255, 255))):
+                        ("asmodeus", (35, 100, 255, 255)),
+                        ("satan", (200, 15, 15, 255)), ("bombsight", (115, 72, 36, 255))):
         path = f"{ASSETS}/textures/entity/{name}.png"
         if not os.path.exists(path):  # nao sobrescreve se ja houver uma skin real
             save_png(Image.new("RGBA", (64, 64), color), path)

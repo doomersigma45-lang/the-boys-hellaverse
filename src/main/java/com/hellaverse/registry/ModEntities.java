@@ -7,6 +7,8 @@ import com.hellaverse.entity.AsmodeusEntity;
 import com.hellaverse.entity.BeelzebubEntity;
 import com.hellaverse.entity.BillyButcherEntity;
 import com.hellaverse.entity.BlackNoirEntity;
+import com.hellaverse.entity.BombsightEntity;
+import com.hellaverse.entity.SatanEntity;
 import com.hellaverse.entity.BlitzoEntity;
 import com.hellaverse.entity.BlueFireballEntity;
 import com.hellaverse.entity.CherriBombEntity;
@@ -150,6 +152,19 @@ public final class ModEntities {
                     .clientTrackingRange(10)
                     .build(HellaverseMod.MODID + ":blitzo"));
 
+    public static final RegistryObject<EntityType<SatanEntity>> SATAN = ENTITY_TYPES.register("satan",
+            () -> EntityType.Builder.of(SatanEntity::new, MobCategory.MONSTER)
+                    .sized(2.5F, SatanEntity.HEIGHT)
+                    .clientTrackingRange(32)
+                    .fireImmune()
+                    .build(HellaverseMod.MODID + ":satan"));
+
+    public static final RegistryObject<EntityType<BombsightEntity>> BOMBSIGHT = ENTITY_TYPES.register("bombsight",
+            () -> EntityType.Builder.of(BombsightEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":bombsight"));
+
     public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
             () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
                     .sized(0.4F, 0.4F)
@@ -177,6 +192,8 @@ public final class ModEntities {
         event.put(BEELZEBUB.get(), BeelzebubEntity.createAttributes().build());
         event.put(BILLY_BUTCHER.get(), BillyButcherEntity.createAttributes().build());
         event.put(BLITZO.get(), BlitzoEntity.createAttributes().build());
+        event.put(SATAN.get(), SatanEntity.createAttributes().build());
+        event.put(BOMBSIGHT.get(), BombsightEntity.createAttributes().build());
         event.put(ADAM.get(), AdamEntity.createAttributes().build());
         event.put(SOLDIER_BOY.get(), SoldierBoyEntity.createAttributes().build());
     }

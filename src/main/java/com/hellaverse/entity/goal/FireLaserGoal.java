@@ -21,19 +21,25 @@ import net.minecraft.world.phys.Vec3;
  */
 public class FireLaserGoal extends Goal {
     private static final double MIN_RANGE = 3.0D;
-    private static final double MAX_RANGE = 24.0D;
     private static final int FIRE_TICKS = 30;
-    private static final int COOLDOWN_TICKS = 100;
     private static final int HIT_INTERVAL = 10;
 
     private final Mob mob;
     private final float damage;
+    private final double maxRange;
+    private final int cooldown;
     private long nextAllowedTime;
     private int firing;
 
     public FireLaserGoal(Mob mob, float damagePerHit) {
+        this(mob, damagePerHit, 24.0D, 100);
+    }
+
+    public FireLaserGoal(Mob mob, float damagePerHit, double maxRange, int cooldownTicks) {
         this.mob = mob;
         this.damage = damagePerHit;
+        this.maxRange = maxRange;
+        this.cooldown = cooldownTicks;
         setFlags(EnumSet.of(Flag.LOOK));
     }
 
@@ -59,7 +65,7 @@ public class FireLaserGoal extends Goal {
 
     @Override
     public void stop() {
-        nextAllowedTime = mob.level().getGameTime() + COOLDOWN_TICKS;
+        nextAllowedTime = mob.level().getGameTime() + cooldown;
         firing = 0;
     }
 
@@ -113,6 +119,6 @@ public class FireLaserGoal extends Goal {
 
     private boolean inRange(LivingEntity target) {
         double distance = mob.distanceTo(target);
-        return distance >= MIN_RANGE && distance <= MAX_RANGE;
+        return distance >= MIN_RANGE && distance <= maxRange;
     }
 }

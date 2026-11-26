@@ -159,12 +159,26 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 
 ## Billy Butcher
 - **HP 35**, dano de jogador (1 de base), abre portas, neutro/agressivo: revida quem o atacar e ataca mobs hostis.
-- Arma: **pé de cabra** (`hellaverse:crowbar`, 5 de dano) de perto; a partir de 12 blocos troca para a **sniper**
+- Arma: **pé de cabra** (`hellaverse:crowbar`, 10 de dano) de perto; a partir de 12 blocos troca para a **sniper**
   (sem gastar munição). Skin própria.
 
 ## Blitzo
 - **HP 17**, dano corpo a corpo 0,75 (menos que o jogador), abre portas, **hostil** a jogadores, atira de **revólver**.
   Um pouco maior que o Moxxie (86% do tamanho, contra 78%). Skin própria.
+
+## Satan (boss)
+- **HP 6666**, dano 666, **9 blocos de altura**, barra de vida vermelha, hostil a jogadores, imune a fogo.
+  Aparência provisória: vermelho sólido (substitua `textures/entity/satan.png`; o modelo é ampliado 5x).
+- **Laser de fogo** como o do Lamplighter, mas com **60 de dano por pulso** (o do Lamplighter dá 6), alcance de 48 blocos.
+- **Bolas de fogo** explosivas (potência 3, maior que a do Lamplighter).
+
+## Bombsight (boss)
+- **HP 250**, dano 45, hostil a jogadores, barra de vida amarela. Aparência provisória: marrom sólido
+  (`textures/entity/bombsight.png`).
+- **Grandes saltos** até o alvo (até 30 blocos); ao pousar há **60% de chance de explosão** (potência 3).
+  Não sofre dano de queda nem da própria explosão.
+- **Resistência VI** permanente. Atenção: no jogo, Resistência V ou maior já anula praticamente todo dano, então ele só
+  morre por `/kill`, vazio e danos que ignoram resistência. Para mudar, altere `RESISTANCE_AMPLIFIER` em `BombsightEntity`.
 
 ## Armas e munições
 

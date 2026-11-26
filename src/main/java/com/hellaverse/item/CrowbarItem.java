@@ -8,9 +8,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 
-/** Pe de cabra do Billy Butcher: arma corpo a corpo (5 de dano no total, ataque rapido). */
+/** Pe de cabra do Billy Butcher: arma corpo a corpo (10 de dano no total, ataque rapido). */
 public class CrowbarItem extends Item {
-    public static final double TOTAL_DAMAGE = 5.0D;
+    public static final double TOTAL_DAMAGE = 10.0D;
 
     private final Multimap<Attribute, AttributeModifier> mainHandModifiers;
 

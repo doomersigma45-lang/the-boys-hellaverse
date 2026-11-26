@@ -1,10 +1,14 @@
 package com.hellaverse.entity;
 
 import com.hellaverse.entity.goal.ShadowTentaclesGoal;
+import com.hellaverse.event.AlastorPact;
 import com.hellaverse.entity.goal.SummonShadowDemonsGoal;
 import com.hellaverse.registry.ModItems;
 import javax.annotation.Nullable;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.BossEvent;
@@ -62,7 +66,8 @@ public class AlastorEntity extends AbstractBossEntity {
         goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
         targetSelector.addGoal(1, new HurtByTargetGoal(this, ShadowDemonEntity.class));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false,
+                target -> !(target instanceof Player player) || !AlastorPact.isBound(player)));
     }
 
     @Override
@@ -71,6 +76,14 @@ public class AlastorEntity extends AbstractBossEntity {
             return false; // imune a projeteis
         }
         return super.hurt(source, amount);
+    }
+
+    @Override
+    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if (!level().isClientSide) {
+            player.sendSystemMessage(Component.translatable("message.hellaverse.pact_hint"));
+        }
+        return InteractionResult.sidedSuccess(level().isClientSide);
     }
 
     @Nullable

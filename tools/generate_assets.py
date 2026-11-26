@@ -228,9 +228,27 @@ def gen_weapons():
 
 def gen_lang():
     en = {"itemGroup.hellaverse": "The Boys Hellaverse",
-          "message.hellaverse.no_dimension": "This dimension is not available."}
+          "message.hellaverse.no_dimension": "This dimension is not available.",
+          "message.hellaverse.pact_hint": "Alastor smiles: \"Make a deal, darling: /alastor deal <item> <1-15>. Everything has a price.\"",
+          "message.hellaverse.pact_signed": "The deal is struck. You receive %s x %s... and Alastor will collect his price.",
+          "message.hellaverse.pact_deal": "Another deal: %s x %s.",
+          "message.hellaverse.pact_too_far": "Alastor must be within 16 blocks to make a deal.",
+          "message.hellaverse.pact_players_only": "Only players can make a deal with Alastor.",
+          "message.hellaverse.pact_released": "The deal with Alastor is broken.",
+          "message.hellaverse.pact_item_taken": "Alastor took %s x %s from you...",
+          "message.hellaverse.pact_teleport": "Alastor sends you somewhere else...",
+          "message.hellaverse.pact_near_death": "Alastor's price: you feel life draining away..."}
     pt = {"itemGroup.hellaverse": "The Boys Hellaverse",
-          "message.hellaverse.no_dimension": "Esta dimensão não está disponível."}
+          "message.hellaverse.no_dimension": "Esta dimensão não está disponível.",
+          "message.hellaverse.pact_hint": "Alastor sorri: \"Faça um acordo, querido: /alastor deal <item> <1-15>. Tudo tem um preço.\"",
+          "message.hellaverse.pact_signed": "O acordo está selado. Você recebe %s x %s... e o Alastor cobrará o preço.",
+          "message.hellaverse.pact_deal": "Mais um acordo: %s x %s.",
+          "message.hellaverse.pact_too_far": "O Alastor precisa estar a até 16 blocos para fazer um acordo.",
+          "message.hellaverse.pact_players_only": "Só jogadores podem fazer acordo com o Alastor.",
+          "message.hellaverse.pact_released": "O acordo com o Alastor foi desfeito.",
+          "message.hellaverse.pact_item_taken": "O Alastor levou %s x %s de você...",
+          "message.hellaverse.pact_teleport": "O Alastor mandou você para outro lugar...",
+          "message.hellaverse.pact_near_death": "O preço do Alastor: você sente a vida se esvaindo..."}
     for ent, label in (("homelander", "Homelander"), ("kimiko", "Kimiko"), ("web_weaver", "Web Weaver"),
                         ("adam", "Adam"), ("soldier_boy", "Soldier Boy"),
                         ("lamplighter", "Lamplighter"), ("cherri_bomb", "Cherri Bomb"),

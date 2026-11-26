@@ -111,6 +111,16 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
   Os tentáculos são desenhados com partículas.
 - Segura o **Alastor Staff**, que sempre cai quando ele morre.
 
+### Acordo com o Alastor
+- Perto de um Alastor (até 16 blocos), use `/alastor deal <item> [quantidade 1-15]` para receber **qualquer item** do jogo,
+  no máximo 15 de cada vez (itens que não empilham vêm em várias unidades). Clicar com o botão direito no Alastor mostra a dica.
+- O Alastor **para de te atacar** (a menos que você o ataque). Em troca, a partir do primeiro acordo, a cada segundo há chance de:
+  - **Teletransporte** para um lugar aleatório (150 a 500 blocos; em dimensões com teto, 30 a 80) — em média a cada 5 min;
+  - **Perder uma pilha inteira** de itens do inventário — em média a cada 1 min;
+  - **Dano quase fatal** do nada (a vida cai para meio coração, se tinha mais de 1 coração) — em média a cada 10 min.
+- O acordo vale para sempre (sobrevive à morte). Jogadores no criativo/espectador não sofrem o preço.
+  `/alastor release` (só operadores) desfaz o acordo. As chances ficam no topo de `AlastorPactEvents`.
+
 ## Demônio de Sombra
 - **HP 5**, dano 6, rápido. Protege o dono (jogador com o cajado ou o Alastor): ataca quem feriu o dono e o alvo do dono,
   segue o dono, não fere o dono nem outros demônios dele e some após 30 s. Não tem ovo de geração.

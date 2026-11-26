@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 /** Modelo humanoide ampliado para acompanhar a altura atual (5 blocos em pe, menor quando agachado). */
 public class AsmodeusRenderer extends SimpleHumanoidRenderer<AsmodeusEntity> {
     public AsmodeusRenderer(EntityRendererProvider.Context context) {
-        super(context, "asmodeus");
+        super(context, "asmodeus", true);
         this.shadowRadius = 1.4F;
     }
 

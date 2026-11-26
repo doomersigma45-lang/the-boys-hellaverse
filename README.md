@@ -122,17 +122,17 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 - **HP 25**, dano corpo a corpo igual ao de um jogador (1), abre portas, neutro: revida quem o atacar e ataca mobs hostis.
 - Atira com as armas do mod (sem gastar munição): **RPG** contra alvos com mais vida máxima que ele, **AK-47 ou revólver**
   (aleatório) contra alvos com vida igual ou menor. A arma aparece na mão dele.
-- Aparência provisória: cor sólida azul (substitua `textures/entity/frenchie.png` por uma skin 64x64).
+- Skin própria (`textures/entity/frenchie.png`).
 
 ## Moxxie
 - **HP 15**, dano corpo a corpo 0,5 (metade do jogador), abre portas, imune a fogo, neutro/hostil: revida e ataca mobs hostis.
 - Atira de **revólver** (até 24 blocos) ou **sniper** (mais longe). Menor que um jogador (78% do tamanho, hitbox menor).
-- Aparência provisória: cor sólida vermelha (substitua `textures/entity/moxxie.png`).
+- Skin própria (`textures/entity/moxxie.png`).
 
 ## Asmodeus (boss)
 - **HP 2500**, dano 75, **5 blocos de altura**, barra de vida azul, hostil a jogadores, imune a fogo, abre portas.
-  Aura de partículas de **fogo azul** (`soul_fire_flame`) em volta do corpo. Aparência provisória: azul sólido
-  (substitua `textures/entity/asmodeus.png` por uma skin 64x64; o modelo é ampliado automaticamente).
+  Aura de partículas de **fogo azul** (`soul_fire_flame`) em volta do corpo. Skin própria (braço fino); o modelo é
+  ampliado automaticamente para 5 blocos.
 - **Projétil de fogo azul**: 15 de dano + queima por 6 s, invisível (só as partículas), a cada ~1,5 s a distância.
 - **Agarrar**: perto do alvo (até 7 blocos), levanta o alvo à sua frente e despeja **de 4 a 7** projéteis de fogo azul
   nele, depois solta (recarga de 15 s).

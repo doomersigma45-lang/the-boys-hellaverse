@@ -46,6 +46,8 @@ public final class ClientModEvents {
                 context -> new SimpleHumanoidRenderer<>(context, "vox", true));
         event.registerEntityRenderer(ModEntities.STORMFRONT.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "stormfront"));
+        event.registerEntityRenderer(ModEntities.BEELZEBUB.get(),
+                context -> new SimpleHumanoidRenderer<>(context, "beelzebub"));
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "web_weaver"));

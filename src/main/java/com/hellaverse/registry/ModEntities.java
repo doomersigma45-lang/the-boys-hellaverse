@@ -4,6 +4,7 @@ import com.hellaverse.HellaverseMod;
 import com.hellaverse.entity.AdamEntity;
 import com.hellaverse.entity.AlastorEntity;
 import com.hellaverse.entity.AsmodeusEntity;
+import com.hellaverse.entity.BeelzebubEntity;
 import com.hellaverse.entity.BlackNoirEntity;
 import com.hellaverse.entity.BlueFireballEntity;
 import com.hellaverse.entity.CherriBombEntity;
@@ -129,6 +130,12 @@ public final class ModEntities {
                     .clientTrackingRange(16)
                     .build(HellaverseMod.MODID + ":stormfront"));
 
+    public static final RegistryObject<EntityType<BeelzebubEntity>> BEELZEBUB = ENTITY_TYPES.register("beelzebub",
+            () -> EntityType.Builder.of(BeelzebubEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.8F)
+                    .clientTrackingRange(16)
+                    .build(HellaverseMod.MODID + ":beelzebub"));
+
     public static final RegistryObject<EntityType<RocketEntity>> ROCKET = ENTITY_TYPES.register("rocket",
             () -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
                     .sized(0.4F, 0.4F)
@@ -153,6 +160,7 @@ public final class ModEntities {
         event.put(ASMODEUS.get(), AsmodeusEntity.createAttributes().build());
         event.put(VOX.get(), VoxEntity.createAttributes().build());
         event.put(STORMFRONT.get(), StormfrontEntity.createAttributes().build());
+        event.put(BEELZEBUB.get(), BeelzebubEntity.createAttributes().build());
         event.put(ADAM.get(), AdamEntity.createAttributes().build());
         event.put(SOLDIER_BOY.get(), SoldierBoyEntity.createAttributes().build());
     }

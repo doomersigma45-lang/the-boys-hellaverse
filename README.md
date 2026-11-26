@@ -150,6 +150,13 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
   `compound_v:stormfront` permanente. Skin própria em alta resolução (128x128).
 - **Raios**: três raios por vez (12 de dano cada), um no alvo e dois em volta, com aviso de faíscas.
 
+## Beelzebub (boss)
+- **HP 2100**, dano 90, hostil a jogadores, **voa**, abre portas (inclusive voando). Skin própria em alta resolução (128x128).
+- **Mais resistente que o Homelander**: recebe só 50% do dano (o Homelander, 60%) e ainda tem Resistência III
+  (o Homelander, II). Imune a empurrão.
+- **Fúria** ao chegar em 50% da vida: dano ×1,5 (135), +30% de velocidade, Força II, barra de vida vermelha,
+  rugido e partículas de chama.
+
 ## Armas e munições
 
 Na aba criativa (e por receita de craft). Cada tiro gasta 1 munição do tipo da arma, que fica no inventário (ou na mão secundária). No criativo não gasta. Armas automáticas atiram enquanto o botão direito estiver pressionado.

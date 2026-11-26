@@ -39,6 +39,7 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.ASMODEUS_SPAWN_EGG.get());
                         output.accept(ModItems.VOX_SPAWN_EGG.get());
                         output.accept(ModItems.STORMFRONT_SPAWN_EGG.get());
+                        output.accept(ModItems.BEELZEBUB_SPAWN_EGG.get());
                         output.accept(ModItems.ALASTOR_SPAWN_EGG.get());
                         output.accept(ModItems.ALASTOR_STAFF.get());
                         for (var weapon : new net.minecraft.world.item.Item[] {

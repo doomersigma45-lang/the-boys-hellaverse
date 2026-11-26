@@ -23,6 +23,10 @@ public abstract class AbstractBossEntity extends PathfinderMob {
         setPersistenceRequired();
     }
 
+    protected void setBossBarColor(BossEvent.BossBarColor color) {
+        bossEvent.setColor(color);
+    }
+
     @Override
     public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);

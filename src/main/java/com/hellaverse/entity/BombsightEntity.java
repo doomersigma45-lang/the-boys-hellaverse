@@ -20,13 +20,13 @@ import net.minecraft.world.level.Level;
 
 /**
  * Bombsight (boss). Hostil a jogadores: da grandes saltos ate o alvo e, ao pousar, pode explodir.
- * Tem Resistencia VI permanente (amplificador 5).
+ * Tem Resistencia III permanente, e nenhum outro efeito.
  */
 public class BombsightEntity extends AbstractBossEntity {
     public static final double MAX_HEALTH = 250.0D;
     public static final double ATTACK_DAMAGE = 45.0D;
-    /** Resistencia VI = amplificador 5. Ajuste aqui para deixa-lo mais ou menos resistente. */
-    private static final int RESISTANCE_AMPLIFIER = 5;
+    /** Resistencia III = amplificador 2 (e o unico efeito dele). Ajuste aqui para mais ou menos resistencia. */
+    private static final int RESISTANCE_AMPLIFIER = 2;
     private static final float SLAM_EXPLOSION_POWER = 3.0F;
     private static final float SLAM_EXPLOSION_CHANCE = 0.6F;
 

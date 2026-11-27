@@ -178,26 +178,24 @@ Neutro e passivo: só revida quem o atacar. Skin própria.
 
 ## Satan (boss)
 - **HP 6666**, dano 666, **9 blocos de altura**, barra de vida vermelha, hostil a jogadores, imune a fogo.
-  Aparência provisória: vermelho sólido (substitua `textures/entity/satan.png`; o modelo é ampliado 5x).
+  Skin própria (braço fino); o modelo é ampliado 5x.
 - **Laser de fogo** como o do Lamplighter, mas com **60 de dano por pulso** (o do Lamplighter dá 6), alcance de 48 blocos.
 - **Bolas de fogo** explosivas (potência 3, maior que a do Lamplighter).
 
 ## Bombsight (boss)
-- **HP 250**, dano 45, hostil a jogadores, barra de vida amarela. Aparência provisória: marrom sólido
-  (`textures/entity/bombsight.png`).
+- **HP 250**, dano 45, hostil a jogadores, barra de vida amarela. Skin própria.
 - **Grandes saltos** até o alvo (até 30 blocos); ao pousar há **60% de chance de explosão** (potência 3).
   Não sofre dano de queda nem da própria explosão.
-- **Resistência VI** permanente. Atenção: no jogo, Resistência V ou maior já anula praticamente todo dano, então ele só
-  morre por `/kill`, vazio e danos que ignoram resistência. Para mudar, altere `RESISTANCE_AMPLIFIER` em `BombsightEntity`.
+- **Resistência III** permanente (reduz o dano recebido em 60%), e nenhum outro efeito. Para mudar, altere `RESISTANCE_AMPLIFIER` em `BombsightEntity`.
 
 ## Ryan
 - **HP 250**, dano 35, **todo dano recebido reduzido em 19%**, **voa** e dispara laser pelos olhos (efeitos
   `compound_v:creative_flight` e `compound_v:laser_eyes_advanced`), identifica mobs hostis de longe.
 - **Quebra blocos** e abre portas no caminho do alvo, **mais devagar** que o Homelander (18 ticks por bloco contra 10)
-  e também mais lento ao andar. Neutro: ataca mobs hostis e revida quem o atacar. Aparência provisória: vermelho sólido.
+  e também mais lento ao andar. Neutro: ataca mobs hostis e revida quem o atacar. Skin própria.
 
 ## Octavia
-- **HP 95**, dano 7,5, neutra: revida quem a atacar e ataca mobs hostis. Aparência provisória: preto sólido.
+- **HP 95**, dano 7,5, neutra: revida quem a atacar e ataca mobs hostis. Skin própria (braço fino).
 - **Escudo rosa**: ao ser ferida cria uma bolha rosa (partículas) que absorve todo o dano por até 5 s ou até acumular
   30 de dano; recarga de 8 s.
 - **Magia rosa**: projétil de energia rosa (8 de dano mágico, ignora armadura), até 28 blocos.

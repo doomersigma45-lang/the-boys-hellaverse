@@ -53,13 +53,13 @@ public final class ClientModEvents {
         event.registerEntityRenderer(ModEntities.BLITZO.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "blitzo").withScale(0.86F));
         event.registerEntityRenderer(ModEntities.SATAN.get(),
-                context -> new SimpleHumanoidRenderer<>(context, "satan").withScale(5.0F));
+                context -> new SimpleHumanoidRenderer<>(context, "satan", true).withScale(5.0F));
         event.registerEntityRenderer(ModEntities.BOMBSIGHT.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "bombsight"));
         event.registerEntityRenderer(ModEntities.RYAN.get(),
                 context -> new SimpleHumanoidRenderer<>(context, "ryan"));
         event.registerEntityRenderer(ModEntities.OCTAVIA.get(),
-                context -> new SimpleHumanoidRenderer<>(context, "octavia"));
+                context -> new SimpleHumanoidRenderer<>(context, "octavia", true));
         event.registerEntityRenderer(ModEntities.PINK_MAGIC.get(), NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.ROCKET.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.WEB_WEAVER.get(),
